@@ -1,0 +1,17 @@
+{
+  "name": "business-built-fast",
+  "version": "1.0.0",
+  "description": "Ready-made businesses that generate $10K/month",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static site - no build needed'",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "stripe": "^14.21.0"
+  },
+  "keywords": ["business", "saas", "ecommerce", "stripe"],
+  "author": "Business Built Fast",
+  "license": "MIT"
+}

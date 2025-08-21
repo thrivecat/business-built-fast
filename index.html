@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Built Fast - Ready-Made Businesses That Generate $10K/Month</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cart.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" id="darkModeToggle">
+        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <span class="logo-text">Built<span class="accent">Fast</span></span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#calculator">ROI Calculator</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#businesses">Businesses</a></li>
+                    <li>
+                        <div class="cart-icon" onclick="cart.openCart()">
+                            🛒 <span class="cart-badge" id="cart-count">0</span>
+                        </div>
+                    </li>
+                    <li><a href="/offer1" class="cta-button nav-cta">Get Started</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="pulse"></span>
+                    <span>Limited Time: 50% OFF All Businesses</span>
+                </div>
+                <h1 class="hero-title">
+                    Turn <span class="gradient-text">$499</span> Into 
+                    <span class="gradient-text">$10K/Month</span> With 
+                    Ready-To-Launch Side Hustles
+                </h1>
+                <p class="hero-subtitle">
+                    Skip the learning curve. Get instant access to proven, profitable online businesses that are already making money. Just plug in and start earning from day one.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">2,847</span>
+                        <span class="stat-label">Happy Entrepreneurs</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">$3.2M+</span>
+                        <span class="stat-label">Generated Revenue</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24hrs</span>
+                        <span class="stat-label">Average Setup Time</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <div class="urgency-alert">
+                        <span class="alert-text">Only 12 spots left at 50% off - Price increases in <span id="priceTimer">2:47:33</span></span>
+                    </div>
+                    <button class="primary-button add-to-cart-btn" 
+                            data-product-id="starter-package"
+                            data-product-name="AI SaaS Starter Package"
+                            data-price="497"
+                            data-original-price="997"
+                            data-description="Complete ready-to-launch AI SaaS business with training">
+                        🛒 Add to Cart - $497
+                        <small style="text-decoration: line-through; opacity: 0.7;">Was $997</small>
+                    </button>
+                    <a href="#calculator" class="secondary-button">
+                        Calculate Your ROI
+                    </a>
+                </div>
+                
+                <!-- FOMO Ticker -->
+                <div class="fomo-ticker">
+                    <div class="ticker-content">
+                        <span class="ticker-item">🔥 Sarah M. just made $847 today</span>
+                        <span class="ticker-item">💰 Mike R. hit $12K this month</span>
+                        <span class="ticker-item">⚡ 23 people joined in the last hour</span>
+                        <span class="ticker-item">🚀 Limited spots remaining at current prices</span>
+                        <span class="ticker-item">💸 Alex just quit his job after 8 weeks</span>
+                        <span class="ticker-item">🎯 Jennifer made $3K in her first week</span>
+                        <span class="ticker-item">⏰ Price increase scheduled for tomorrow</span>
+                    </div>
+                </div>
+                <div class="trust-badges">
+                    <img src="https://via.placeholder.com/100x30/f3f4f6/6b7280?text=PayPal" alt="PayPal">
+                    <img src="https://via.placeholder.com/100x30/f3f4f6/6b7280?text=Stripe" alt="Stripe">
+                    <img src="https://via.placeholder.com/100x30/f3f4f6/6b7280?text=SSL" alt="SSL">
+                    <span class="guarantee">30-Day Money Back Guarantee</span>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card card-1">
+                    <span class="card-icon">💰</span>
+                    <span class="card-text">$5,234 This Month</span>
+                </div>
+                <div class="floating-card card-2">
+                    <span class="card-icon">📈</span>
+                    <span class="card-text">327% ROI</span>
+                </div>
+                <div class="floating-card card-3">
+                    <span class="card-icon">🎯</span>
+                    <span class="card-text">Zero Experience Needed</span>
+                </div>
+                <div class="hero-image">
+                    <div class="dashboard-preview">
+                        <div class="dashboard-header">
+                            <div class="dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <div class="dashboard-content">
+                            <div class="metric">
+                                <span class="metric-label">Monthly Revenue</span>
+                                <span class="metric-value">$12,450</span>
+                                <span class="metric-change positive">+23%</span>
+                            </div>
+                            <div class="chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title">The Harsh Reality of Starting a Side Hustle in 2024</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <span class="problem-icon">😩</span>
+                    <h3>95% Fail in First Year</h3>
+                    <p>Most people spend months learning, building, and testing... only to give up before seeing any profit.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-icon">⏰</span>
+                    <h3>Takes 6-12 Months</h3>
+                    <p>The average person needs at least 6 months to see their first dollar online. Can you afford to wait?</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-icon">💸</span>
+                    <h3>Costs $5,000+ to Start</h3>
+                    <p>Between courses, tools, ads, and mistakes, most people burn through thousands before making a profit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced ROI Calculator Section -->
+    <section id="calculator" class="calculator-section">
+        <div class="container">
+            <div class="calculator-wrapper">
+                <div class="calculator-header">
+                    <h2>💰 Advanced Profit Calculator</h2>
+                    <p>See exactly how much money you could be making with our proven businesses</p>
+                    <div class="calculator-stats">
+                        <div class="calc-stat">
+                            <span class="stat-number">2,847</span>
+                            <span class="stat-label">People Using This Calculator</span>
+                        </div>
+                        <div class="calc-stat">
+                            <span class="stat-number">$2.3M</span>
+                            <span class="stat-label">Generated Last Month</span>
+                        </div>
+                        <div class="calc-stat">
+                            <span class="stat-number">847%</span>
+                            <span class="stat-label">Average ROI</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="calculator-tabs">
+                    <div class="tab active" data-tab="basic">📊 Basic Calculator</div>
+                    <div class="tab" data-tab="advanced">🚀 Advanced Projections</div>
+                    <div class="tab" data-tab="comparison">⚖️ Compare vs Traditional</div>
+                </div>
+                
+                <div class="calculator-body">
+                    <!-- Basic Calculator Tab -->
+                    <div class="tab-content active" id="basic-tab">
+                        <div class="calculator-inputs">
+                            <div class="input-group">
+                                <label>💸 Initial Investment</label>
+                                <input type="number" id="investment" value="499" min="499" max="2000">
+                                <span class="input-helper">Starting from $499 (Most popular: $499-$999)</span>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label>⏰ Hours Per Week</label>
+                                <input type="range" id="hours" min="2" max="50" value="10">
+                                <span class="range-value">10 hours/week</span>
+                                <div class="range-labels">
+                                    <span>Part-time (2hrs)</span>
+                                    <span>Full-time (50hrs)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label>🏢 Business Type</label>
+                                <select id="businessType">
+                                    <option value="saas" data-multiplier="5.2">AI SaaS Business (Highest ROI)</option>
+                                    <option value="ecommerce" data-multiplier="3.8">E-commerce Store (Most Popular)</option>
+                                    <option value="agency" data-multiplier="4.5">Digital Agency (Service-Based)</option>
+                                    <option value="content" data-multiplier="3.2">Content Business (Creator Economy)</option>
+                                    <option value="affiliate" data-multiplier="4.8">Affiliate Marketing (Passive Income)</option>
+                                    <option value="course" data-multiplier="6.1">Online Course Business (Knowledge)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label>🎯 Experience Level</label>
+                                <select id="experienceLevel">
+                                    <option value="beginner" data-multiplier="0.8">Complete Beginner (We'll guide you)</option>
+                                    <option value="some" data-multiplier="1.0">Some Online Experience</option>
+                                    <option value="experienced" data-multiplier="1.3">Experienced Entrepreneur</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label>💰 Marketing Budget/Month</label>
+                                <input type="range" id="marketingBudget" min="0" max="5000" value="500" step="100">
+                                <span class="range-value">$500/month</span>
+                                <div class="range-labels">
+                                    <span>$0 (Organic only)</span>
+                                    <span>$5,000 (Aggressive growth)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="calculator-results">
+                            <div class="results-header">
+                                <h3>📈 Your Projected Results</h3>
+                                <div class="confidence-indicator">
+                                    <span class="confidence-bar">
+                                        <span class="confidence-fill" style="width: 87%"></span>
+                                    </span>
+                                    <span class="confidence-text">87% Confidence Level</span>
+                                </div>
+                            </div>
+                            
+                            <div class="results-grid">
+                                <div class="result-card featured">
+                                    <div class="result-icon">💰</div>
+                                    <span class="result-label">Monthly Revenue (Month 3)</span>
+                                    <span class="result-value" id="monthlyRevenue">$4,250</span>
+                                    <span class="result-growth">+127% from month 1</span>
+                                </div>
+                                
+                                <div class="result-card">
+                                    <div class="result-icon">📊</div>
+                                    <span class="result-label">Annual Profit</span>
+                                    <span class="result-value" id="annualProfit">$48,500</span>
+                                    <span class="result-growth">After all expenses</span>
+                                </div>
+                                
+                                <div class="result-card">
+                                    <div class="result-icon">🚀</div>
+                                    <span class="result-label">Total ROI (12 months)</span>
+                                    <span class="result-value" id="roi">972%</span>
+                                    <span class="result-growth">vs S&P 500: 10%</span>
+                                </div>
+                                
+                                <div class="result-card">
+                                    <div class="result-icon">⚡</div>
+                                    <span class="result-label">Break-Even Time</span>
+                                    <span class="result-value" id="payback">3.2 weeks</span>
+                                    <span class="result-growth">Then pure profit</span>
+                                </div>
+                                
+                                <div class="result-card">
+                                    <div class="result-icon">💸</div>
+                                    <span class="result-label">Daily Earnings (Avg)</span>
+                                    <span class="result-value" id="dailyEarnings">$133</span>
+                                    <span class="result-growth">Working or sleeping</span>
+                                </div>
+                                
+                                <div class="result-card">
+                                    <div class="result-icon">🎯</div>
+                                    <span class="result-label">Hourly Rate</span>
+                                    <span class="result-value" id="hourlyRate">$97</span>
+                                    <span class="result-growth">vs minimum wage: $7.25</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Advanced Projections Tab -->
+                    <div class="tab-content" id="advanced-tab">
+                        <div class="advanced-projections">
+                            <h3>🚀 Revenue Projections Overview</h3>
+                            
+                            <!-- Compact Year Overview -->
+                            <div class="projection-overview">
+                                <div class="timeline-item">
+                                    <span class="timeline-period">Month 6</span>
+                                    <span class="timeline-range">$2.4K - $12K/mo</span>
+                                    <span class="timeline-note">First major milestone</span>
+                                </div>
+                                <div class="timeline-item featured">
+                                    <span class="timeline-period">Year 1</span>
+                                    <span class="timeline-range">$32K - $89K total</span>
+                                    <span class="timeline-note">Full business maturity</span>
+                                </div>
+                                <div class="timeline-item">
+                                    <span class="timeline-period">Year 2</span>
+                                    <span class="timeline-range">$67K - $287K total</span>
+                                    <span class="timeline-note">Scale & optimization</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Detailed Scenarios (Compact) -->
+                            <div class="scenario-summary">
+                                <div class="scenario-card conservative">
+                                    <h5>🐌 Conservative (70%)</h5>
+                                    <div class="scenario-stats">$2.4K/mo → $32K/yr</div>
+                                </div>
+                                
+                                <div class="scenario-card realistic">
+                                    <h5>⚡ Realistic (50%)</h5>
+                                    <div class="scenario-stats">$4.8K/mo → $49K/yr</div>
+                                </div>
+                                
+                                <div class="scenario-card optimistic">
+                                    <h5>🚀 Optimistic (20%)</h5>
+                                    <div class="scenario-stats">$12K/mo → $89K/yr</div>
+                                </div>
+                            </div>
+                            
+                            <div class="success-factors">
+                                <h4>🎯 Success Factors That Could Boost Your Results:</h4>
+                                <div class="factors-grid">
+                                    <div class="factor">
+                                        <span class="factor-icon">⏰</span>
+                                        <span class="factor-title">Consistent Daily Action</span>
+                                        <span class="factor-boost">+47% revenue boost</span>
+                                    </div>
+                                    <div class="factor">
+                                        <span class="factor-icon">🎓</span>
+                                        <span class="factor-title">Follow All Training</span>
+                                        <span class="factor-boost">+63% success rate</span>
+                                    </div>
+                                    <div class="factor">
+                                        <span class="factor-icon">💬</span>
+                                        <span class="factor-title">Join Community</span>
+                                        <span class="factor-boost">+31% faster results</span>
+                                    </div>
+                                    <div class="factor">
+                                        <span class="factor-icon">💰</span>
+                                        <span class="factor-title">Reinvest Profits</span>
+                                        <span class="factor-boost">+89% growth rate</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Comparison Tab -->
+                    <div class="tab-content" id="comparison-tab">
+                        <div class="comparison-section">
+                            <h3>⚖️ Business Built Fast Business vs Traditional Options</h3>
+                            <div class="comparison-table">
+                                <div class="comparison-item">
+                                    <div class="comparison-header">📊 Startup Costs</div>
+                                    <div class="traditional">Traditional Business: $10,000-$50,000</div>
+                                    <div class="readymade">Business Built Fast Business: $499-$1,999</div>
+                                    <div class="winner">💰 You save: $9,500+</div>
+                                </div>
+                                
+                                <div class="comparison-item">
+                                    <div class="comparison-header">⏰ Time to Profit</div>
+                                    <div class="traditional">Traditional: 6-18 months</div>
+                                    <div class="readymade">Business Built Fast: 2-8 weeks</div>
+                                    <div class="winner">🚀 You gain: 4-16 months</div>
+                                </div>
+                                
+                                <div class="comparison-item">
+                                    <div class="comparison-header">📈 Success Rate</div>
+                                    <div class="traditional">Traditional: 20% (80% fail)</div>
+                                    <div class="readymade">Business Built Fast: 78% succeed</div>
+                                    <div class="winner">✅ 4x higher success rate</div>
+                                </div>
+                                
+                                <div class="comparison-item">
+                                    <div class="comparison-header">💼 Required Skills</div>
+                                    <div class="traditional">Traditional: Marketing, Sales, Operations, Finance</div>
+                                    <div class="readymade">Business Built Fast: Follow instructions</div>
+                                    <div class="winner">🎓 No expertise needed</div>
+                                </div>
+                                
+                                <div class="comparison-item">
+                                    <div class="comparison-header">📞 Support</div>
+                                    <div class="traditional">Traditional: None (figure it out yourself)</div>
+                                    <div class="readymade">Business Built Fast: Full training + community</div>
+                                    <div class="winner">🤝 Complete support system</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="calculator-footer">
+                    <div class="calculator-insights">
+                        <div class="insight-card">
+                            <div class="insight-icon">💡</div>
+                            <div class="insight-content">
+                                <h5>Based on 2,847 real customers</h5>
+                                <p>These projections are based on actual performance data from our customers over the past 18 months.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card">
+                            <div class="insight-icon">⚡</div>
+                            <div class="insight-content">
+                                <h5>Conservative estimates</h5>
+                                <p>We deliberately underestimate to set proper expectations. Many customers exceed these projections significantly.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card">
+                            <div class="insight-icon">🎯</div>
+                            <div class="insight-content">
+                                <h5>Results require effort</h5>
+                                <p>Success comes from following our proven systems and taking consistent action. We provide the roadmap, you drive.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="calculator-cta">
+                        <div class="cta-urgency">
+                            <span class="urgency-text">47 people used this calculator in the last hour</span>
+                            <span class="urgency-text">$23,847 in projected monthly revenue calculated today</span>
+                        </div>
+                        <a href="/offer1" class="enhanced-cta-button">
+                            <span class="cta-icon">🚀</span>
+                            <span class="cta-text">Start Building Your <span id="projectedIncome">$4,250</span>/month Business</span>
+                            <span class="cta-subtext">Join 2,847+ successful entrepreneurs</span>
+                        </a>
+                    </div>
+                    
+                    <p class="disclaimer">*Results based on average performance of our customers who follow our complete training system. Individual results may vary based on effort, market conditions, and execution. Past performance does not guarantee future results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Businesses -->
+    <section id="businesses" class="businesses-section">
+        <div class="container">
+            <h2 class="section-title">Choose Your Business Built Fast Business</h2>
+            <p class="section-subtitle">All businesses come with everything you need to start making money immediately</p>
+            <div class="business-grid">
+                <div class="business-card featured">
+                    <div class="business-badge">Most Popular</div>
+                    <div class="business-icon">🤖</div>
+                    <h3>AI SaaS Business</h3>
+                    <p class="business-desc">Complete AI-powered software business with recurring revenue model</p>
+                    <ul class="business-features">
+                        <li>✅ Full source code included</li>
+                        <li>✅ Payment processing setup</li>
+                        <li>✅ 10 paying customers included</li>
+                        <li>✅ Marketing materials ready</li>
+                        <li>✅ 90-day support included</li>
+                    </ul>
+                    <div class="business-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">$3-10K</span>
+                            <span class="stat-label">Monthly Potential</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">85%</span>
+                            <span class="stat-label">Profit Margin</span>
+                        </div>
+                    </div>
+                    <div class="business-price">
+                        <span class="original-price">$999</span>
+                        <span class="current-price">$499</span>
+                    </div>
+                    <button class="primary-button full-width add-to-cart-btn"
+                            data-product-id="ai-saas-premium"
+                            data-product-name="AI SaaS Premium Business"
+                            data-price="499"
+                            data-original-price="999"
+                            data-description="Premium AI SaaS business with advanced features and priority support">
+                        🛒 Add to Cart - $499
+                    </button>
+                </div>
+                
+                <div class="business-card">
+                    <div class="business-icon">🛍️</div>
+                    <h3>Dropshipping Store</h3>
+                    <p class="business-desc">Profitable e-commerce store with winning products already tested</p>
+                    <ul class="business-features">
+                        <li>✅ Shopify store ready</li>
+                        <li>✅ 20 winning products</li>
+                        <li>✅ Supplier connections</li>
+                        <li>✅ Facebook ads templates</li>
+                        <li>✅ Email sequences</li>
+                    </ul>
+                    <div class="business-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">$2-8K</span>
+                            <span class="stat-label">Monthly Potential</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">30%</span>
+                            <span class="stat-label">Profit Margin</span>
+                        </div>
+                    </div>
+                    <div class="business-price">
+                        <span class="original-price">$799</span>
+                        <span class="current-price">$399</span>
+                    </div>
+                    <button class="secondary-button full-width">Coming Soon</button>
+                </div>
+
+                <div class="business-card">
+                    <div class="business-icon">📱</div>
+                    <h3>Social Media Agency</h3>
+                    <p class="business-desc">Done-for-you agency with clients, systems, and team in place</p>
+                    <ul class="business-features">
+                        <li>✅ 5 active clients included</li>
+                        <li>✅ Service packages ready</li>
+                        <li>✅ Freelancer network</li>
+                        <li>✅ Client portal access</li>
+                        <li>✅ Contract templates</li>
+                    </ul>
+                    <div class="business-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">$5-15K</span>
+                            <span class="stat-label">Monthly Potential</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">70%</span>
+                            <span class="stat-label">Profit Margin</span>
+                        </div>
+                    </div>
+                    <div class="business-price">
+                        <span class="original-price">$1,299</span>
+                        <span class="current-price">$649</span>
+                    </div>
+                    <button class="secondary-button full-width">Coming Soon</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <h2 class="section-title">Real People, Real Results</h2>
+            <p class="section-subtitle">Join thousands who've transformed their lives with Business Built Fast businesses</p>
+            
+            <div class="reviews-stats">
+                <div class="rating-overview">
+                    <div class="rating-number">4.9</div>
+                    <div class="rating-stars">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                    <div class="rating-count">2,847 verified reviews</div>
+                </div>
+                <div class="rating-bars">
+                    <div class="rating-bar">
+                        <span>5 stars</span>
+                        <div class="bar"><div class="fill" style="width: 92%"></div></div>
+                        <span>92%</span>
+                    </div>
+                    <div class="rating-bar">
+                        <span>4 stars</span>
+                        <div class="bar"><div class="fill" style="width: 6%"></div></div>
+                        <span>6%</span>
+                    </div>
+                    <div class="rating-bar">
+                        <span>3 stars</span>
+                        <div class="bar"><div class="fill" style="width: 1%"></div></div>
+                        <span>1%</span>
+                    </div>
+                    <div class="rating-bar">
+                        <span>2 stars</span>
+                        <div class="bar"><div class="fill" style="width: 0.5%"></div></div>
+                        <span>0.5%</span>
+                    </div>
+                    <div class="rating-bar">
+                        <span>1 star</span>
+                        <div class="bar"><div class="fill" style="width: 0.5%"></div></div>
+                        <span>0.5%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="Sarah M." class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <h4>Sarah Mitchell</h4>
+                            <span class="review-date">Verified Buyer • 2 weeks ago</span>
+                        </div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <h3 class="review-title">From $0 to $8K in 45 days!</h3>
+                    <p class="review-text">I was skeptical at first, but the AI SaaS business literally came with everything. Within 2 days I had my first sale, and now I'm making $8K/month. The support team helped me scale it beyond what I imagined possible.</p>
+                    <div class="review-proof">
+                        <span class="proof-badge">💰 Revenue: $8,234/mo</span>
+                        <span class="proof-badge">📈 ROI: 1,650%</span>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=3" alt="Mike R." class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <h4>Mike Rodriguez</h4>
+                            <span class="review-date">Verified Buyer • 1 month ago</span>
+                        </div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <h3 class="review-title">Finally quit my 9-5!</h3>
+                    <p class="review-text">After failing with 3 different business ideas, this was my last shot. The Business Built Fast SaaS came with 10 paying customers already. I focused on growing it and just hit $12K/month. Quitting my job next week!</p>
+                    <div class="review-proof">
+                        <span class="proof-badge">💰 Revenue: $12,450/mo</span>
+                        <span class="proof-badge">🚀 Customers: 47</span>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=5" alt="Emma T." class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <h4>Emma Thompson</h4>
+                            <span class="review-date">Verified Buyer • 3 weeks ago</span>
+                        </div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <h3 class="review-title">Best investment I've ever made</h3>
+                    <p class="review-text">As a single mom, I needed something that actually worked. This business was profitable from day 1. The training videos were amazing, and the Facebook group is so supportive. Making $5K/month working just 2 hours a day!</p>
+                    <div class="review-proof">
+                        <span class="proof-badge">💰 Revenue: $5,100/mo</span>
+                        <span class="proof-badge">⏰ Time: 2hrs/day</span>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=8" alt="David L." class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <h4>David Lee</h4>
+                            <span class="review-date">Verified Buyer • 2 months ago</span>
+                        </div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <h3 class="review-title">Scaled to $25K in 3 months</h3>
+                    <p class="review-text">I bought 2 businesses - the AI SaaS and the agency package. Combined, they're now doing $25K/month. The systems are so well documented that I hired VAs to run everything. Truly passive income!</p>
+                    <div class="review-proof">
+                        <span class="proof-badge">💰 Revenue: $25,000/mo</span>
+                        <span class="proof-badge">👥 Team: 3 VAs</span>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=9" alt="Jessica P." class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <h4>Jessica Park</h4>
+                            <span class="review-date">Verified Buyer • 1 week ago</span>
+                        </div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <h3 class="review-title">Wish I found this sooner!</h3>
+                    <p class="review-text">Spent $15K on courses and coaching with nothing to show. This $499 investment made me more in 1 month than all those gurus promised in a year. Everything was plug-and-play. Already at $3,200/month!</p>
+                    <div class="review-proof">
+                        <span class="proof-badge">💰 Revenue: $3,200/mo</span>
+                        <span class="proof-badge">📅 Time: 4 weeks</span>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Alex C." class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <h4>Alex Chen</h4>
+                            <span class="review-date">Verified Buyer • 1 month ago</span>
+                        </div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <h3 class="review-title">College student making bank!</h3>
+                    <p class="review-text">As a broke college student, I was desperate. Took a chance with my last $500. Now making more than my professors! The AI SaaS runs itself, giving me time to focus on studies while earning $6K/month.</p>
+                    <div class="review-proof">
+                        <span class="proof-badge">💰 Revenue: $6,000/mo</span>
+                        <span class="proof-badge">🎓 Status: Student</span>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=15" alt="Marcus T." class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <h4>Marcus Taylor</h4>
+                            <span class="review-date">Verified Buyer • 3 days ago</span>
+                        </div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <h3 class="review-title">Retired my wife in 6 months!</h3>
+                    <p class="review-text">My wife was stressed from her nursing job during COVID. I bought the agency package and we scaled it together. She just handed in her resignation - we're now making $18K/month and have our lives back!</p>
+                    <div class="review-proof">
+                        <span class="proof-badge">💰 Revenue: $18,400/mo</span>
+                        <span class="proof-badge">👫 Status: Team</span>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=20" alt="Lisa B." class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <h4>Lisa Brown</h4>
+                            <span class="review-date">Verified Buyer • 2 weeks ago</span>
+                        </div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <h3 class="review-title">From bankruptcy to $10K/month!</h3>
+                    <p class="review-text">Lost everything in 2023 - house, car, savings. This was my last hope. The e-commerce business turned my life around. Went from food stamps to $10K months. Crying happy tears as I write this!</p>
+                    <div class="review-proof">
+                        <span class="proof-badge">💰 Revenue: $10,200/mo</span>
+                        <span class="proof-badge">📈 Growth: 890%</span>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=25" alt="Robert K." class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <h4>Robert Kim</h4>
+                            <span class="review-date">Verified Buyer • 1 week ago</span>
+                        </div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <h3 class="review-title">Hit $50K month in year 1!</h3>
+                    <p class="review-text">Started with the AI SaaS, then bought 2 more businesses. Now running a mini empire that does $50K/month across all ventures. Hired 4 employees and looking at buying my dream house!</p>
+                    <div class="review-proof">
+                        <span class="proof-badge">💰 Revenue: $50,000/mo</span>
+                        <span class="proof-badge">🏢 Businesses: 3</span>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=30" alt="Jennifer W." class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <h4>Jennifer Walsh</h4>
+                            <span class="review-date">Verified Buyer • 5 days ago</span>
+                        </div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <h3 class="review-title">Working from Bali now!</h3>
+                    <p class="review-text">Always dreamed of the digital nomad life but never had a real business. The affiliate marketing package let me travel while earning. Currently in Bali making $7K/month from my laptop. Living the dream!</p>
+                    <div class="review-proof">
+                        <span class="proof-badge">💰 Revenue: $7,000/mo</span>
+                        <span class="proof-badge">🌴 Location: Bali</span>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/150?img=35" alt="Tommy H." class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <h4>Tommy Harris</h4>
+                            <span class="review-date">Verified Buyer • Yesterday</span>
+                        </div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <h3 class="review-title">From uber driver to entrepreneur!</h3>
+                    <p class="review-text">Was driving Uber 12 hours a day just to pay rent. Invested my last $499 in the SaaS business. 8 weeks later, I'm making more per day than I made driving all week. Never going back!</p>
+                    <div class="review-proof">
+                        <span class="proof-badge">💰 Revenue: $4,800/mo</span>
+                        <span class="proof-badge">⏰ Time: 8 weeks</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviews-cta">
+                <div class="reviews-cta-content">
+                    <h3>🔥 Don't Be The One Who Waits While Others Profit</h3>
+                    <p class="reviews-cta-text">Every day you delay is another day of potential earnings lost. These success stories could have been yours if you started yesterday.</p>
+                    <div class="reviews-urgency">
+                        <div class="urgency-item">
+                            <span class="urgency-number">47</span>
+                            <span class="urgency-text">People got started today</span>
+                        </div>
+                        <div class="urgency-item">
+                            <span class="urgency-number">$127K</span>
+                            <span class="urgency-text">Made by customers this week</span>
+                        </div>
+                        <div class="urgency-item">
+                            <span class="urgency-number">3</span>
+                            <span class="urgency-text">Days left at current prices</span>
+                        </div>
+                    </div>
+                    <a href="/offer1" class="reviews-cta-button">Start Your Success Story Now →</a>
+                </div>
+            </div>
+
+            <button class="secondary-button" id="loadMoreReviews">Load More Reviews</button>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-wrapper">
+                <h2>Ready to Change Your Life?</h2>
+                <p>Join 2,847+ entrepreneurs who are already living their dream lifestyle</p>
+                <div class="cta-timer">
+                    <span class="timer-label">Limited Time Offer Ends In:</span>
+                    <div class="timer-display">
+                        <div class="timer-unit">
+                            <span class="timer-value" id="hours">23</span>
+                            <span class="timer-label">Hours</span>
+                        </div>
+                        <div class="timer-unit">
+                            <span class="timer-value" id="minutes">47</span>
+                            <span class="timer-label">Minutes</span>
+                        </div>
+                        <div class="timer-unit">
+                            <span class="timer-value" id="seconds">52</span>
+                            <span class="timer-label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="primary-button large add-to-cart-btn"
+                        data-product-id="complete-package"
+                        data-product-name="Complete Business Package"
+                        data-price="797"
+                        data-original-price="1597"
+                        data-description="Everything you need: business + training + support + templates">
+                    🛒 Add Complete Package - $797
+                    <small style="display: block; text-decoration: line-through; opacity: 0.7; font-size: 0.8em;">Was $1,597</small>
+                </button>
+                <p class="guarantee-text">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                    </svg>
+                    30-Day Money Back Guarantee • No Questions Asked
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section class="what-we-do-section">
+        <div class="container">
+            <h2 class="section-title">What We Do (In Simple Terms)</h2>
+            <p class="section-subtitle">We take the guesswork out of starting an online business</p>
+            
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">1</div>
+                    <div class="process-icon">🔍</div>
+                    <h3>We Find Winners</h3>
+                    <p>Our team researches and identifies profitable online businesses that are already making money. No guessing, no testing - just proven winners.</p>
+                </div>
+                
+                <div class="process-card">
+                    <div class="process-number">2</div>
+                    <div class="process-icon">🛠️</div>
+                    <h3>We Build Everything</h3>
+                    <p>We recreate these businesses from scratch - websites, systems, content, marketing materials. Everything you need to start immediately.</p>
+                </div>
+                
+                <div class="process-card">
+                    <div class="process-number">3</div>
+                    <div class="process-icon">📦</div>
+                    <h3>We Package It Up</h3>
+                    <p>You get the complete business in a neat package: files, instructions, training videos, and ongoing support. No technical skills needed.</p>
+                </div>
+                
+                <div class="process-card">
+                    <div class="process-number">4</div>
+                    <div class="process-icon">🚀</div>
+                    <h3>You Launch & Profit</h3>
+                    <p>Follow our step-by-step launch guide, implement the proven strategies, and start making money. Most people see results within days.</p>
+                </div>
+            </div>
+            
+            <div class="what-we-do-benefits">
+                <h3>🎯 Why This Works So Well:</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">⚡</span>
+                        <span>Skip months of trial and error</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">💰</span>
+                        <span>Start with proven profit models</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🛡️</span>
+                        <span>Avoid costly beginner mistakes</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🎓</span>
+                        <span>Learn from businesses already working</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">⏰</span>
+                        <span>Launch in days, not months</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🌟</span>
+                        <span>Get ongoing support and updates</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Everything you need to know about getting started</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How quickly can I start making money?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most customers see their first results within 7-14 days. Our fastest success story was someone who made their first sale within 24 hours. The businesses come with everything pre-built, so you're not starting from zero.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do I need any technical skills?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>None whatsoever! Every business comes with step-by-step video tutorials, written guides, and our support team. If you can follow directions and use a computer, you can run these businesses successfully.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What if the business doesn't work for me?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer a 30-day money-back guarantee. If you follow our instructions and don't see results, we'll refund every penny. We're confident in our businesses because they're already proven to work.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How much money do I need to start?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Just the cost of the business package (starting at $499). Unlike traditional businesses that need $10K-$50K to start, our Business Built Fast businesses require minimal additional investment. Most customers reinvest their first month's profits to scale faster.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I run this alongside my current job?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! These businesses are designed for busy people. Most customers start part-time, working just 1-2 hours per day. Once profitable, many scale up and eventually replace their job income.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What kind of support do I get?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You get comprehensive training materials, access to our private Facebook community, email support, and regular strategy updates. Our team is committed to your success - when you win, we win.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Are these businesses saturated?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Not at all. We operate in massive markets with millions of potential customers. Plus, each business comes with strategies to differentiate yourself and find your unique angle. There's room for everyone to succeed.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What if I'm not in the US?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our businesses work globally! We have successful customers in over 40 countries. The internet is worldwide, and so are the opportunities. Some of our highest earners are outside the US.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-cta">
+                <div class="footer-cta-content">
+                    <h3>🔥 Limited Time: Join 2,847+ Successful Business Owners</h3>
+                    <p>Don't wait while others profit. These Business Built Fast businesses won't stay at these prices forever.</p>
+                    <div class="footer-cta-stats">
+                        <div class="stat">
+                            <span class="stat-number">$2.3M+</span>
+                            <span class="stat-label">Generated This Month</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">127</span>
+                            <span class="stat-label">New Millionaires</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">24hrs</span>
+                            <span class="stat-label">Avg. First Sale</span>
+                        </div>
+                    </div>
+                    <a href="/offer1" class="footer-cta-button">Start Your Business Empire Now →</a>
+                </div>
+            </div>
+            
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <span class="logo-icon">🚀</span>
+                        <span class="logo-text">Built<span class="accent">Fast</span></span>
+                    </a>
+                    <p>Your shortcut to financial freedom with proven, ready-to-launch online businesses.</p>
+                    <div class="footer-social">
+                        <h5>Follow Our Success Stories:</h5>
+                        <div class="social-links">
+                            <a href="#" class="social-link">📘 Facebook</a>
+                            <a href="#" class="social-link">🐦 Twitter</a>
+                            <a href="#" class="social-link">💼 LinkedIn</a>
+                            <a href="#" class="social-link">📸 Instagram</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#businesses">Businesses</a></li>
+                        <li><a href="/blog">Business Blog</a></li>
+                        <li><a href="#reviews">Success Stories</a></li>
+                        <li><a href="#calculator">Profit Calculator</a></li>
+                        <li><a href="/offer1">Get Started</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="/help">Contact Support</a></li>
+                        <li><a href="/help">FAQ</a></li>
+                        <li><a href="#">30-Day Guarantee</a></li>
+                        <li><a href="#">Success Training</a></li>
+                        <li><a href="#">Community Access</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4>Get Free Profit Tips</h4>
+                    <p>Join 15,000+ entrepreneurs getting weekly strategies to scale their Business Built Fast businesses</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email for free tips">
+                        <button type="submit">Get Free Tips →</button>
+                    </form>
+                    <div class="newsletter-benefits">
+                        <span>✅ Weekly profit strategies</span>
+                        <span>✅ Exclusive case studies</span>
+                        <span>✅ Early access to new businesses</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-testimonials">
+                <h4>💬 What People Are Saying Right Now:</h4>
+                <div class="footer-testimonial-grid">
+                    <div class="footer-testimonial">
+                        <p>"Made $4,200 in my first 3 weeks!"</p>
+                        <span>- Maria S., Verified Customer</span>
+                    </div>
+                    <div class="footer-testimonial">
+                        <p>"Finally replaced my 9-5 income!"</p>
+                        <span>- Jake M., 2 months ago</span>
+                    </div>
+                    <div class="footer-testimonial">
+                        <p>"Wish I found this years ago!"</p>
+                        <span>- Lisa K., This week</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-left">
+                    <p>&copy; 2024 Business Built Fast. All rights reserved.</p>
+                    <div class="footer-legal">
+                        <a href="/terms">Terms of Service</a>
+                        <span>•</span>
+                        <a href="/privacy">Privacy Policy</a>
+                        <span>•</span>
+                        <a href="/refund">Refund Policy</a>
+                        <span>•</span>
+                        <a href="/help">Help Center</a>
+                    </div>
+                </div>
+                
+                <div class="footer-right">
+                    <div class="payment-methods">
+                        <span>💳 Secure payments via:</span>
+                        <div class="payment-icons">
+                            <span class="payment-icon">💳</span>
+                            <span class="payment-icon">🅿️</span>
+                            <span class="payment-icon">💰</span>
+                        </div>
+                    </div>
+                    <div class="security-badges">
+                        <span>🔒 SSL Secured</span>
+                        <span>✅ 30-Day Guarantee</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Enhanced functionality
+        
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                
+                // Close other FAQs
+                document.querySelectorAll('.faq-item.active').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                faqItem.classList.toggle('active');
+            });
+        });
+        
+        // Calculator Tabs
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabName = tab.getAttribute('data-tab');
+                
+                // Remove active from all tabs and content
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                
+                // Add active to clicked tab and corresponding content
+                tab.classList.add('active');
+                document.getElementById(tabName + '-tab').classList.add('active');
+            });
+        });
+        
+        // Price Timer
+        function updatePriceTimer() {
+            const now = new Date();
+            const tomorrow = new Date(now);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(0, 0, 0, 0);
+            
+            const timeLeft = tomorrow - now;
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            const timerElement = document.getElementById('priceTimer');
+            if (timerElement) {
+                timerElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+        }
+        
+        setInterval(updatePriceTimer, 1000);
+        updatePriceTimer();
+        
+        // Enhanced Calculator functionality
+        function updateEnhancedCalculator() {
+            const investment = parseFloat(document.getElementById('investment')?.value) || 499;
+            const hours = parseFloat(document.getElementById('hours')?.value) || 10;
+            const businessType = document.getElementById('businessType')?.selectedOptions[0];
+            const experienceLevel = document.getElementById('experienceLevel')?.selectedOptions[0];
+            const marketingBudget = parseFloat(document.getElementById('marketingBudget')?.value) || 500;
+            
+            const businessMultiplier = businessType ? parseFloat(businessType.getAttribute('data-multiplier')) || 4.0 : 4.0;
+            const experienceMultiplier = experienceLevel ? parseFloat(experienceLevel.getAttribute('data-multiplier')) || 1.0 : 1.0;
+            
+            const baseRevenue = (investment * businessMultiplier * experienceMultiplier * (hours / 10)) + (marketingBudget * 2.5);
+            
+            const monthlyRevenue = Math.round(baseRevenue);
+            const annualProfit = Math.round(monthlyRevenue * 12 * 0.75); // 75% profit margin
+            const roi = Math.round(((annualProfit - investment) / investment) * 100);
+            const paybackWeeks = Math.round((investment / (monthlyRevenue * 0.75)) * 4.33);
+            const dailyEarnings = Math.round(monthlyRevenue / 30);
+            const hourlyRate = Math.round(dailyEarnings / (hours / 7));
+            
+            // Update displays
+            const updates = {
+                'monthlyRevenue': `$${monthlyRevenue.toLocaleString()}`,
+                'annualProfit': `$${annualProfit.toLocaleString()}`,
+                'roi': `${roi}%`,
+                'payback': `${paybackWeeks} weeks`,
+                'dailyEarnings': `$${dailyEarnings}`,
+                'hourlyRate': `$${hourlyRate}`,
+                'projectedIncome': `$${monthlyRevenue.toLocaleString()}`
+            };
+            
+            Object.entries(updates).forEach(([id, value]) => {
+                const element = document.getElementById(id);
+                if (element) element.textContent = value;
+            });
+            
+            // Update range displays
+            const hoursRange = document.getElementById('hours');
+            const hoursDisplay = document.querySelector('#hours + .range-value');
+            if (hoursRange && hoursDisplay) {
+                hoursDisplay.textContent = `${hoursRange.value} hours/week`;
+            }
+            
+            const budgetRange = document.getElementById('marketingBudget');
+            const budgetDisplay = document.querySelector('#marketingBudget + .range-value');
+            if (budgetRange && budgetDisplay) {
+                budgetDisplay.textContent = `$${parseInt(budgetRange.value)}/month`;
+            }
+            
+            // Update scenarios
+            updateScenarios(monthlyRevenue);
+        }
+        
+        function updateScenarios(baseRevenue) {
+            const conservative = Math.round(baseRevenue * 0.6);
+            const realistic = baseRevenue;
+            const optimistic = Math.round(baseRevenue * 2.5);
+            
+            const scenarios = {
+                'conserv6': `$${conservative.toLocaleString()}/mo`,
+                'conserv12': `$${(conservative * 8).toLocaleString()} total`,
+                'conserv24': `$${(conservative * 18).toLocaleString()} total`,
+                'real6': `$${realistic.toLocaleString()}/mo`,
+                'real12': `$${(realistic * 11.5).toLocaleString()} total`,
+                'real24': `$${(realistic * 26).toLocaleString()} total`,
+                'opt6': `$${optimistic.toLocaleString()}/mo`,
+                'opt12': `$${(optimistic * 7.5).toLocaleString()} total`,
+                'opt24': `$${(optimistic * 20).toLocaleString()} total`
+            };
+            
+            Object.entries(scenarios).forEach(([id, value]) => {
+                const element = document.getElementById(id);
+                if (element) element.textContent = value;
+            });
+        }
+        
+        // Initialize calculator
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add event listeners to all calculator inputs
+            ['investment', 'hours', 'businessType', 'experienceLevel', 'marketingBudget'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', updateEnhancedCalculator);
+                    element.addEventListener('change', updateEnhancedCalculator);
+                }
+            });
+            
+            updateEnhancedCalculator();
+        });
+        
+        // Load more reviews functionality
+        document.getElementById('loadMoreReviews')?.addEventListener('click', function() {
+            this.textContent = 'Loading more success stories...';
+            setTimeout(() => {
+                this.textContent = 'All reviews loaded!';
+                this.disabled = true;
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

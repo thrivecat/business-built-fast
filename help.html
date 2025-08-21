@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - Business Built Fast</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="legal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <span class="logo-text">Built<span class="accent">Fast</span></span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index">Home</a></li>
+                    <li><a href="help" class="active">Help Center</a></li>
+                    <li><a href="terms">Terms</a></li>
+                    <li><a href="privacy">Privacy</a></li>
+                    <li><a href="refund">Refund Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Help Center Content -->
+    <section class="help-section">
+        <div class="container">
+            <div class="help-header">
+                <h1>Help Center</h1>
+                <p>Find answers to your questions and get the support you need</p>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <div class="action-card">
+                    <h3>📧 Contact Support</h3>
+                    <p>Get personalized help from our team</p>
+                    <a href="mailto:support@businessbuiltfast.com" class="action-button">Email Support</a>
+                </div>
+                <div class="action-card">
+                    <h3>💬 Live Chat</h3>
+                    <p>Chat with us in real-time</p>
+                    <button class="action-button" onclick="openChat()">Start Chat</button>
+                </div>
+                <div class="action-card">
+                    <h3>🔄 Request Refund</h3>
+                    <p>Submit a refund request (if eligible)</p>
+                    <a href="mailto:refunds@businessbuiltfast.com" class="action-button">Request Refund</a>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="help-faq">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-category">
+                    <h3>Getting Started</h3>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <div class="faq-question">How do I get started after purchase?</div>
+                            <div class="faq-answer">
+                                <p>After purchase, you'll receive an email with access to our onboarding form within 15 minutes. Complete this form with your business preferences, and we'll begin setting up your custom business package. Setup typically takes 24-72 hours.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">What information do I need for onboarding?</div>
+                            <div class="faq-answer">
+                                <p>You'll need to provide your business niche preference, desired domain name (we'll help if needed), branding preferences (colors, style), and contact information. The form takes about 10-15 minutes to complete.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">Do I need technical skills?</div>
+                            <div class="faq-answer">
+                                <p>No technical skills required! We handle all the technical setup for you. Your business comes ready-to-run with full training materials. Most customers are generating revenue within the first week.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h3>Refunds & Policies</h3>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <div class="faq-question">What is your refund policy?</div>
+                            <div class="faq-answer">
+                                <p>Full refunds are available ONLY before you submit the onboarding form. Once you submit onboarding information, we begin custom work and no refunds are possible. Please review our <a href="refund">detailed refund policy</a> before purchasing.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">Why can't I get a refund after onboarding?</div>
+                            <div class="faq-answer">
+                                <p>Once you submit the onboarding form, we immediately begin creating your custom business package. This includes purchasing domains, licenses, and creating personalized content that cannot be resold to other customers.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">How do I request a refund?</div>
+                            <div class="faq-answer">
+                                <p>Email refunds@businessbuiltfast.com with your order number and "Refund Request - Pre-Onboarding" in the subject line. Refunds are only processed if you haven't submitted the onboarding form yet.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h3>Support & Training</h3>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <div class="faq-question">What support do I get?</div>
+                            <div class="faq-answer">
+                                <p>You receive 90 days of email support, access to our private community, complete video training library, and weekly group coaching calls (depending on your package). We respond to support requests within 24-48 hours.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">How quickly will you respond to support requests?</div>
+                            <div class="faq-answer">
+                                <p>We aim to respond to all support requests within 24-48 hours during business days (Monday-Friday). Urgent technical issues are prioritized and typically receive same-day responses.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">Do you offer phone support?</div>
+                            <div class="faq-answer">
+                                <p>Currently, we provide support primarily through email and our community forum. This allows us to provide detailed, documented responses and maintain our cost-effective pricing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h3>Business & Revenue</h3>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <div class="faq-question">How quickly can I start making money?</div>
+                            <div class="faq-answer">
+                                <p>Most customers see their first revenue within 1-2 weeks of receiving their business. However, building to $1K+/month typically takes 30-90 days depending on your effort and business type.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">Are the income claims realistic?</div>
+                            <div class="faq-answer">
+                                <p>The examples shown are from real customers, but individual results vary significantly based on effort, market conditions, and execution. There are no income guarantees - success depends on your commitment and business acumen.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">Can I sell my business later?</div>
+                            <div class="faq-answer">
+                                <p>Yes! You own your business 100% and can sell it on platforms like Flippa, Empire Flippers, or privately. Many customers have successfully sold their businesses for 10-20x monthly revenue.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-section">
+                <h2>Still Need Help?</h2>
+                <div class="contact-grid">
+                    <div class="contact-option">
+                        <h4>📧 Email Support</h4>
+                        <p>General questions and assistance</p>
+                        <a href="mailto:support@businessbuiltfast.com">support@businessbuiltfast.com</a>
+                        <small>Response time: 24-48 hours</small>
+                    </div>
+
+                    <div class="contact-option">
+                        <h4>🔄 Refund Requests</h4>
+                        <p>Pre-onboarding refund requests only</p>
+                        <a href="mailto:refunds@businessbuiltfast.com">refunds@businessbuiltfast.com</a>
+                        <small>Processing time: 3-5 business days</small>
+                    </div>
+
+                    <div class="contact-option">
+                        <h4>⚖️ Legal & Privacy</h4>
+                        <p>Terms, privacy, and legal matters</p>
+                        <a href="mailto:legal@businessbuiltfast.com">legal@businessbuiltfast.com</a>
+                        <small>Response time: 5-7 business days</small>
+                    </div>
+
+                    <div class="contact-option">
+                        <h4>🏢 Business Address</h4>
+                        <p>Our registered office location</p>
+                        <address>
+                            Business Built Fast<br>
+                            74 Shelton Street<br>
+                            London WC2H 9JQ<br>
+                            United Kingdom
+                        </address>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Hours -->
+            <div class="business-hours">
+                <h3>Business Hours</h3>
+                <div class="hours-grid">
+                    <div>Monday - Friday: 9:00 AM - 6:00 PM GMT</div>
+                    <div>Saturday: 10:00 AM - 4:00 PM GMT</div>
+                    <div>Sunday: Closed</div>
+                </div>
+                <p><small>Support requests received outside business hours will be processed on the next business day.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-simple">
+        <div class="container">
+            <p>&copy; 2024 Business Built Fast. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index">Home</a>
+                <a href="terms">Terms</a>
+                <a href="privacy">Privacy</a>
+                <a href="refund">Refund Policy</a>
+                <a href="help">Help Center</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                
+                // Close other open FAQs
+                document.querySelectorAll('.faq-item.active').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current FAQ
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Mock chat function
+        function openChat() {
+            alert('Live chat is currently being set up. Please use email support at support@businessbuiltfast.com for immediate assistance.');
+        }
+    </script>
+</body>
+</html>

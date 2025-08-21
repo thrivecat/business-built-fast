@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful - Business Built Fast</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="legal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <span class="logo-text">Business Built<span class="accent">Fast</span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Success Section -->
+    <section class="success-section">
+        <div class="container">
+            <div class="success-content">
+                <div class="success-icon">🎉</div>
+                <h1>Payment Successful!</h1>
+                <p class="success-subtitle">Thank you for your purchase! Your business package is being prepared.</p>
+
+                <div class="order-details" id="order-details">
+                    <!-- Order details will be populated by JavaScript -->
+                </div>
+
+                <div class="next-steps">
+                    <h2>What Happens Next?</h2>
+                    <div class="steps-grid">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <h3>Check Your Email</h3>
+                            <p>You'll receive a confirmation email with your receipt within 5 minutes.</p>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <h3>Complete Onboarding</h3>
+                            <p>We'll send you an onboarding form to customize your business package.</p>
+                            <div class="important-note">
+                                <strong>Important:</strong> Refunds are only available BEFORE submitting the onboarding form!
+                            </div>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <h3>Business Delivery</h3>
+                            <p>Your complete business package will be delivered within 24-72 hours.</p>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-number">4</div>
+                            <h3>Start Earning</h3>
+                            <p>Launch your business and start generating revenue with our training.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="support-info">
+                    <h3>Need Help?</h3>
+                    <div class="support-options">
+                        <div class="support-option">
+                            <strong>Email Support</strong>
+                            <a href="mailto:support@businessbuiltfast.com">support@businessbuiltfast.com</a>
+                        </div>
+                        <div class="support-option">
+                            <strong>Help Center</strong>
+                            <a href="help">Visit Help Center</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="index" class="primary-button">Return to Homepage</a>
+                    <a href="help" class="secondary-button">Contact Support</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            displayOrderDetails();
+        });
+
+        function displayOrderDetails() {
+            const orderDetails = localStorage.getItem('order_details');
+            const orderDetailsContainer = document.getElementById('order-details');
+            
+            if (orderDetails) {
+                const order = JSON.parse(orderDetails);
+                orderDetailsContainer.innerHTML = `
+                    <div class="order-summary-card">
+                        <h3>Order Summary</h3>
+                        <div class="order-info">
+                            <div class="order-row">
+                                <span>Order ID:</span>
+                                <span><strong>${order.id}</strong></span>
+                            </div>
+                            <div class="order-row">
+                                <span>Total Paid:</span>
+                                <span><strong>$${order.amount}</strong></span>
+                            </div>
+                            <div class="order-row">
+                                <span>Date:</span>
+                                <span>${new Date(order.timestamp).toLocaleDateString()}</span>
+                            </div>
+                        </div>
+                        <div class="order-items">
+                            <h4>Items Purchased:</h4>
+                            ${order.items.map(item => `
+                                <div class="order-item">
+                                    <span>${item.name}</span>
+                                    <span>$${item.price}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+        }
+    </script>
+
+    <style>
+        .success-section {
+            padding: 6rem 0 4rem 0;
+            background: var(--bg-primary);
+            min-height: 100vh;
+        }
+
+        .success-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        .success-content h1 {
+            color: var(--success);
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .success-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+
+        .order-summary-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .order-info, .order-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .order-row, .order-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-align: left;
+            box-shadow: var(--shadow-md);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .important-note {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: var(--radius-sm);
+            padding: 1rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .support-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .support-option {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            text-align: left;
+        }
+
+        .support-option strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .success-content h1 {
+                font-size: 2rem;
+            }
+            
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+</html>

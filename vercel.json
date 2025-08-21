@@ -1,0 +1,93 @@
+{
+  "buildCommand": "echo 'No build needed for static site'",
+  "outputDirectory": ".",
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/checkout",
+      "destination": "/checkout.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/refund",
+      "destination": "/refund.html"
+    },
+    {
+      "source": "/help",
+      "destination": "/help.html"
+    },
+    {
+      "source": "/success",
+      "destination": "/success.html"
+    },
+    {
+      "source": "/shopify-offer",
+      "destination": "/shopify-offer.html"
+    },
+    {
+      "source": "/offer1",
+      "destination": "/offer1.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog.html"
+    },
+    {
+      "source": "/blog/ultimate-guide-saas-business-2024",
+      "destination": "/blog/ultimate-guide-saas-business-2024.html"
+    },
+    {
+      "source": "/blog/shopify-dropshipping-complete-guide",
+      "destination": "/blog/shopify-dropshipping-complete-guide.html"
+    },
+    {
+      "source": "/blog/business-automation-tools-2024",
+      "destination": "/blog/business-automation-tools-2024.html"
+    },
+    {
+      "source": "/blog/scaling-business-from-5k-to-50k-monthly",
+      "destination": "/blog/scaling-business-from-5k-to-50k-monthly.html"
+    },
+    {
+      "source": "/blog/ai-marketing-strategies-small-business",
+      "destination": "/blog/ai-marketing-strategies-small-business.html"
+    },
+    {
+      "source": "/blog/saas-pricing-strategy-maximize-revenue",
+      "destination": "/blog/saas-pricing-strategy-maximize-revenue.html"
+    },
+    {
+      "source": "/blog/ecommerce-seo-ultimate-guide",
+      "destination": "/blog/ecommerce-seo-ultimate-guide.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods", 
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ]
+}

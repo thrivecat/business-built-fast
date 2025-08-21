@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Complete - Business Built Fast</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="legal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" id="darkModeToggle">
+        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+
+    <!-- Onboarding Container -->
+    <div class="onboarding-container">
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text">
+                <span id="currentStep">1</span> of <span id="totalSteps">10</span>
+            </div>
+        </div>
+
+        <!-- Form Container -->
+        <div class="form-container">
+            <!-- Step 1: Welcome -->
+            <div class="form-step active" id="step1">
+                <div class="step-content">
+                    <div class="celebration-header">
+                        <div class="success-animation">
+                            <div class="checkmark">✓</div>
+                        </div>
+                        <h1>🎉 Congratulations!</h1>
+                        <h2>Welcome to Your White Label AI Empire</h2>
+                        <p class="success-message">
+                            You've just made one of the best investments of your life! Your complete AI SaaS platform is ready to be customized and launched under YOUR brand.
+                        </p>
+                        
+                        <div class="next-steps-preview">
+                            <h3>What happens next:</h3>
+                            <div class="steps-grid">
+                                <div class="next-step">
+                                    <span class="step-icon">📋</span>
+                                    <span>Complete onboarding form (5 mins)</span>
+                                </div>
+                                <div class="next-step">
+                                    <span class="step-icon">⚡</span>
+                                    <span>We setup your platform (24-48 hours)</span>
+                                </div>
+                                <div class="next-step">
+                                    <span class="step-icon">🚀</span>
+                                    <span>Launch your branded business</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-actions">
+                        <button type="button" class="btn-primary" onclick="nextStep()">
+                            Start Onboarding
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Personal Information -->
+            <div class="form-step" id="step2">
+                <div class="step-content">
+                    <div class="step-header">
+                        <h2>👋 Let's get to know you</h2>
+                        <p>We need some basic information to personalize your experience and ensure smooth communication throughout the setup process.</p>
+                    </div>
+                    
+                    <div class="form-fields">
+                        <div class="field-row">
+                            <div class="field-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" placeholder="John" required>
+                            </div>
+                            <div class="field-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+                            </div>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="john@company.com" required>
+                            <small class="field-hint">This will be your primary contact for all setup communications</small>
+                        </div>
+                        
+                        <div class="field-row">
+                            <div class="field-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                            </div>
+                            <div class="field-group">
+                                <label for="timezone">Timezone *</label>
+                                <select id="timezone" name="timezone" required>
+                                    <option value="">Select your timezone</option>
+                                    <option value="UTC-8">Pacific Time (UTC-8)</option>
+                                    <option value="UTC-7">Mountain Time (UTC-7)</option>
+                                    <option value="UTC-6">Central Time (UTC-6)</option>
+                                    <option value="UTC-5">Eastern Time (UTC-5)</option>
+                                    <option value="UTC+0">GMT (UTC+0)</option>
+                                    <option value="UTC+1">Central European (UTC+1)</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="businessType">Business Type *</label>
+                            <select id="businessType" name="businessType" required>
+                                <option value="">Select business type</option>
+                                <option value="individual">Individual/Entrepreneur</option>
+                                <option value="startup">Startup</option>
+                                <option value="small-business">Small Business</option>
+                                <option value="agency">Digital Agency</option>
+                                <option value="enterprise">Enterprise</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="step-actions">
+                        <button type="button" class="btn-secondary" onclick="prevStep()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M19 12H5M12 19l-7-7 7-7"/>
+                            </svg>
+                            Back
+                        </button>
+                        <button type="button" class="btn-primary" onclick="nextStep()">
+                            Continue
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Branding Requirements -->
+            <div class="form-step" id="step3">
+                <div class="step-content">
+                    <div class="step-header">
+                        <h2>🎨 Your Brand Identity</h2>
+                        <p>This is where the magic happens! Tell us how you want your AI SaaS platform to look and feel. Remember, this will be 100% YOUR brand - nobody will know we built it.</p>
+                    </div>
+                    
+                    <div class="form-fields">
+                        <div class="field-group">
+                            <label for="companyName">Company/Platform Name *</label>
+                            <input type="text" id="companyName" name="companyName" placeholder="e.g., AI ContentPro, SmartBusiness Tools" required>
+                            <small class="field-hint">This will be displayed throughout your platform and marketing materials</small>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="preferredDomain">Preferred Domain Name</label>
+                            <input type="text" id="preferredDomain" name="preferredDomain" placeholder="e.g., aicontentpro.com, smartbusinesstools.io">
+                            <small class="field-hint">We can help you register this or connect your existing domain</small>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="logoFile">Upload Your Logo (Optional)</label>
+                            <input type="file" id="logoFile" name="logoFile" accept="image/*">
+                            <small class="field-hint">If you don't have a logo, we can create one for you based on your preferences</small>
+                        </div>
+                        
+                        <div class="field-row">
+                            <div class="field-group">
+                                <label for="primaryColor">Primary Brand Color</label>
+                                <div class="color-input-group">
+                                    <input type="color" id="primaryColor" name="primaryColor" value="#3b82f6">
+                                    <input type="text" id="primaryColorText" name="primaryColorText" placeholder="#3b82f6">
+                                </div>
+                            </div>
+                            <div class="field-group">
+                                <label for="secondaryColor">Secondary Color</label>
+                                <div class="color-input-group">
+                                    <input type="color" id="secondaryColor" name="secondaryColor" value="#10b981">
+                                    <input type="text" id="secondaryColorText" name="secondaryColorText" placeholder="#10b981">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="brandStyle">Brand Style Preference</label>
+                            <select id="brandStyle" name="brandStyle">
+                                <option value="">Select a style</option>
+                                <option value="modern">Modern & Minimalist</option>
+                                <option value="corporate">Professional & Corporate</option>
+                                <option value="creative">Creative & Bold</option>
+                                <option value="tech">Tech & Futuristic</option>
+                                <option value="friendly">Friendly & Approachable</option>
+                            </select>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="tagline">Company Tagline/Slogan (Optional)</label>
+                            <input type="text" id="tagline" name="tagline" placeholder="e.g., 'AI-Powered Content Creation Made Simple'">
+                            <small class="field-hint">A memorable phrase that represents your platform's value</small>
+                        </div>
+                    </div>
+                    
+                    <div class="step-actions">
+                        <button type="button" class="btn-secondary" onclick="prevStep()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M19 12H5M12 19l-7-7 7-7"/>
+                            </svg>
+                            Back
+                        </button>
+                        <button type="button" class="btn-primary" onclick="nextStep()">
+                            Continue
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Hosting & Technical Setup -->
+            <div class="form-step" id="step4">
+                <div class="step-content">
+                    <div class="step-header">
+                        <h2>🖥️ Hosting & Technical Details</h2>
+                        <p>We need access to your hosting environment to deploy your platform. Don't worry - our team will handle all the technical setup securely.</p>
+                    </div>
+                    
+                    <div class="form-fields">
+                        <div class="field-group">
+                            <label for="hostingProvider">Hosting Preference *</label>
+                            <select id="hostingProvider" name="hostingProvider" required>
+                                <option value="">Choose an option</option>
+                                <option value="we-handle">Let you handle hosting (Recommended)</option>
+                                <option value="aws">Amazon Web Services (AWS)</option>
+                                <option value="digitalocean">DigitalOcean</option>
+                                <option value="vultr">Vultr</option>
+                                <option value="linode">Linode</option>
+                                <option value="existing">I have existing hosting</option>
+                                <option value="need-help">I need help choosing</option>
+                            </select>
+                            <small class="field-hint">We recommend letting us handle hosting for optimal performance and security</small>
+                        </div>
+                        
+                        <div class="conditional-field" id="hostingDetails" style="display: none;">
+                            <div class="field-group">
+                                <label for="hostingCredentials">Hosting Access Details</label>
+                                <textarea id="hostingCredentials" name="hostingCredentials" rows="4" placeholder="Please provide hosting panel login, FTP credentials, or server access details..."></textarea>
+                                <small class="field-hint">🔒 All credentials are encrypted and securely stored. Only our technical team will have access.</small>
+                            </div>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="databasePreference">Database Preference</label>
+                            <select id="databasePreference" name="databasePreference">
+                                <option value="mysql">MySQL (Recommended)</option>
+                                <option value="postgresql">PostgreSQL</option>
+                                <option value="mongodb">MongoDB</option>
+                                <option value="default">Use default setup</option>
+                            </select>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="sslCertificate">SSL Certificate</label>
+                            <select id="sslCertificate" name="sslCertificate">
+                                <option value="letsencrypt">Let's Encrypt (Free - Recommended)</option>
+                                <option value="existing">I have an existing SSL certificate</option>
+                                <option value="premium">I want a premium SSL certificate</option>
+                            </select>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="technicalContact">Technical Contact Person</label>
+                            <input type="text" id="technicalContact" name="technicalContact" placeholder="Name and contact info of your technical person (if different)">
+                            <small class="field-hint">Someone we can contact for technical questions during setup</small>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="backupPreference">Backup Preferences</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="backupTypes" value="daily" checked>
+                                    Daily automated backups
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="backupTypes" value="weekly">
+                                    Weekly full system backups
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="backupTypes" value="cloud">
+                                    Cloud storage backups
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-actions">
+                        <button type="button" class="btn-secondary" onclick="prevStep()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M19 12H5M12 19l-7-7 7-7"/>
+                            </svg>
+                            Back
+                        </button>
+                        <button type="button" class="btn-primary" onclick="nextStep()">
+                            Continue
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: Competitor Analysis -->
+            <div class="form-step" id="step5">
+                <div class="step-content">
+                    <div class="step-header">
+                        <h2>🔍 Competitive Intelligence</h2>
+                        <p>Help us understand your market and competitors so we can position your platform for maximum impact and differentiation.</p>
+                    </div>
+                    
+                    <div class="form-fields">
+                        <div class="field-group">
+                            <label for="targetAudience">Target Audience *</label>
+                            <textarea id="targetAudience" name="targetAudience" rows="3" placeholder="e.g., Small business owners, Digital marketers, Content creators, Agencies..." required></textarea>
+                            <small class="field-hint">Who will be your primary customers?</small>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="competitorSites">Competitor Websites (Up to 5)</label>
+                            <div class="competitor-inputs">
+                                <input type="url" name="competitors" placeholder="https://competitor1.com" class="competitor-input">
+                                <input type="url" name="competitors" placeholder="https://competitor2.com" class="competitor-input">
+                                <input type="url" name="competitors" placeholder="https://competitor3.com" class="competitor-input">
+                                <input type="url" name="competitors" placeholder="https://competitor4.com" class="competitor-input">
+                                <input type="url" name="competitors" placeholder="https://competitor5.com" class="competitor-input">
+                            </div>
+                            <small class="field-hint">We'll analyze their pricing, features, and positioning to help you compete</small>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="inspirationSites">Inspiration Websites</label>
+                            <textarea id="inspirationSites" name="inspirationSites" rows="3" placeholder="Any websites you love the design/UX of (doesn't have to be competitors)..."></textarea>
+                            <small class="field-hint">Websites whose design, user experience, or functionality you admire</small>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="uniqueValue">Your Unique Value Proposition</label>
+                            <textarea id="uniqueValue" name="uniqueValue" rows="3" placeholder="What makes your platform different/better than competitors?"></textarea>
+                            <small class="field-hint">How do you want to position yourself uniquely in the market?</small>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="pricingStrategy">Pricing Strategy</label>
+                            <select id="pricingStrategy" name="pricingStrategy">
+                                <option value="">Select pricing approach</option>
+                                <option value="freemium">Freemium (Free + Paid plans)</option>
+                                <option value="subscription">Subscription only</option>
+                                <option value="one-time">One-time purchases</option>
+                                <option value="usage-based">Usage-based pricing</option>
+                                <option value="enterprise">Enterprise/Custom pricing</option>
+                                <option value="need-help">I need help deciding</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="step-actions">
+                        <button type="button" class="btn-secondary" onclick="prevStep()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M19 12H5M12 19l-7-7 7-7"/>
+                            </svg>
+                            Back
+                        </button>
+                        <button type="button" class="btn-primary" onclick="nextStep()">
+                            Continue
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 6: Feature Customization -->
+            <div class="form-step" id="step6">
+                <div class="step-content">
+                    <div class="step-header">
+                        <h2>⚙️ Feature Customization</h2>
+                        <p>Your platform comes with 50+ AI tools. Let us know which features are most important for your launch and any customizations you need.</p>
+                    </div>
+                    
+                    <div class="form-fields">
+                        <div class="field-group">
+                            <label>Priority Features (Select top 5) *</label>
+                            <div class="feature-grid">
+                                <label class="feature-checkbox">
+                                    <input type="checkbox" name="priorityFeatures" value="ai-writer">
+                                    <span class="feature-card">
+                                        <span class="feature-icon">✍️</span>
+                                        <span class="feature-name">AI Content Writer</span>
+                                    </span>
+                                </label>
+                                <label class="feature-checkbox">
+                                    <input type="checkbox" name="priorityFeatures" value="image-generator">
+                                    <span class="feature-card">
+                                        <span class="feature-icon">🎨</span>
+                                        <span class="feature-name">AI Image Generator</span>
+                                    </span>
+                                </label>
+                                <label class="feature-checkbox">
+                                    <input type="checkbox" name="priorityFeatures" value="seo-optimizer">
+                                    <span class="feature-card">
+                                        <span class="feature-icon">📈</span>
+                                        <span class="feature-name">SEO Optimizer</span>
+                                    </span>
+                                </label>
+                                <label class="feature-checkbox">
+                                    <input type="checkbox" name="priorityFeatures" value="social-scheduler">
+                                    <span class="feature-card">
+                                        <span class="feature-icon">📱</span>
+                                        <span class="feature-name">Social Media Scheduler</span>
+                                    </span>
+                                </label>
+                                <label class="feature-checkbox">
+                                    <input type="checkbox" name="priorityFeatures" value="email-builder">
+                                    <span class="feature-card">
+                                        <span class="feature-icon">📧</span>
+                                        <span class="feature-name">Email Campaign Builder</span>
+                                    </span>
+                                </label>
+                                <label class="feature-checkbox">
+                                    <input type="checkbox" name="priorityFeatures" value="analytics">
+                                    <span class="feature-card">
+                                        <span class="feature-icon">📊</span>
+                                        <span class="feature-name">Analytics Dashboard</span>
+                                    </span>
+                                </label>
+                                <label class="feature-checkbox">
+                                    <input type="checkbox" name="priorityFeatures" value="crm">
+                                    <span class="feature-card">
+                                        <span class="feature-icon">👥</span>
+                                        <span class="feature-name">CRM System</span>
+                                    </span>
+                                </label>
+                                <label class="feature-checkbox">
+                                    <input type="checkbox" name="priorityFeatures" value="chatbot">
+                                    <span class="feature-card">
+                                        <span class="feature-icon">🤖</span>
+                                        <span class="feature-name">AI Chatbot Builder</span>
+                                    </span>
+                                </label>
+                            </div>
+                            <small class="field-hint">We'll prioritize these features for your initial launch</small>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="customFeatures">Custom Feature Requests</label>
+                            <textarea id="customFeatures" name="customFeatures" rows="4" placeholder="Describe any custom features or modifications you need..."></textarea>
+                            <small class="field-hint">Any specific functionality unique to your business needs</small>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="integrations">Required Integrations</label>
+                            <div class="integration-checkboxes">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="integrations" value="stripe">
+                                    Stripe Payment Processing
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="integrations" value="paypal">
+                                    PayPal Integration
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="integrations" value="zapier">
+                                    Zapier Automation
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="integrations" value="mailchimp">
+                                    Mailchimp/Email Marketing
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="integrations" value="slack">
+                                    Slack Notifications
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="integrations" value="google-analytics">
+                                    Google Analytics
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="userRoles">User Role Requirements</label>
+                            <select id="userRoles" name="userRoles">
+                                <option value="simple">Simple (Admin + Users)</option>
+                                <option value="standard">Standard (Admin + Managers + Users)</option>
+                                <option value="advanced">Advanced (Multiple custom roles)</option>
+                                <option value="enterprise">Enterprise (Complex hierarchy)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="step-actions">
+                        <button type="button" class="btn-secondary" onclick="prevStep()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M19 12H5M12 19l-7-7 7-7"/>
+                            </svg>
+                            Back
+                        </button>
+                        <button type="button" class="btn-primary" onclick="nextStep()">
+                            Continue
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 7: Business & Legal -->
+            <div class="form-step" id="step7">
+                <div class="step-content">
+                    <div class="step-header">
+                        <h2>📋 Business & Legal Requirements</h2>
+                        <p>Let's make sure everything is compliant and properly set up for your business structure and location.</p>
+                    </div>
+                    
+                    <div class="form-fields">
+                        <div class="field-row">
+                            <div class="field-group">
+                                <label for="businessCountry">Business Country *</label>
+                                <select id="businessCountry" name="businessCountry" required>
+                                    <option value="">Select country</option>
+                                    <option value="US">United States</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="GB">United Kingdom</option>
+                                    <option value="AU">Australia</option>
+                                    <option value="DE">Germany</option>
+                                    <option value="FR">France</option>
+                                    <option value="NL">Netherlands</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="field-group">
+                                <label for="businessState">State/Province</label>
+                                <input type="text" id="businessState" name="businessState" placeholder="e.g., California, Ontario">
+                            </div>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="businessStructure">Business Structure</label>
+                            <select id="businessStructure" name="businessStructure">
+                                <option value="">Select structure</option>
+                                <option value="sole-proprietorship">Sole Proprietorship</option>
+                                <option value="llc">LLC</option>
+                                <option value="corporation">Corporation</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="not-registered">Not registered yet</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="complianceNeeds">Compliance Requirements</label>
+                            <div class="compliance-checkboxes">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="compliance" value="gdpr">
+                                    GDPR Compliance (EU users)
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="compliance" value="ccpa">
+                                    CCPA Compliance (California users)
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="compliance" value="hipaa">
+                                    HIPAA Compliance (Healthcare)
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="compliance" value="coppa">
+                                    COPPA Compliance (Under 13 users)
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="compliance" value="pci">
+                                    PCI DSS Compliance (Payment processing)
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="privacyPolicy">Privacy Policy & Terms</label>
+                            <select id="privacyPolicy" name="privacyPolicy">
+                                <option value="generate">Generate standard templates for me</option>
+                                <option value="custom">I have custom policies to implement</option>
+                                <option value="lawyer">I'll have a lawyer review generated templates</option>
+                            </select>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="dataRetention">Data Retention Policy</label>
+                            <select id="dataRetention" name="dataRetention">
+                                <option value="standard">Standard (7 years)</option>
+                                <option value="minimal">Minimal (1 year)</option>
+                                <option value="extended">Extended (10+ years)</option>
+                                <option value="custom">Custom requirements</option>
+                            </select>
+                        </div>
+                        
+                        <div class="field-group agreement-section">
+                            <h3>Terms & Agreements</h3>
+                            <div class="terms-content">
+                                <label class="checkbox-label terms-checkbox">
+                                    <input type="checkbox" id="termsAgree" name="termsAgree" required>
+                                    <span class="checkmark-custom"></span>
+                                    I agree to the <a href="#" target="_blank">White Label License Agreement</a> *
+                                </label>
+                                <label class="checkbox-label terms-checkbox">
+                                    <input type="checkbox" id="setupAgree" name="setupAgree" required>
+                                    <span class="checkmark-custom"></span>
+                                    I authorize ReadyMade Hustles to setup and configure my platform *
+                                </label>
+                                <label class="checkbox-label terms-checkbox">
+                                    <input type="checkbox" id="supportAgree" name="supportAgree" required>
+                                    <span class="checkmark-custom"></span>
+                                    I understand the support terms and 90-day support period *
+                                </label>
+                                <label class="checkbox-label terms-checkbox">
+                                    <input type="checkbox" id="brandingAgree" name="brandingAgree" required>
+                                    <span class="checkmark-custom"></span>
+                                    I confirm I have rights to use the branding materials provided *
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-actions">
+                        <button type="button" class="btn-secondary" onclick="prevStep()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M19 12H5M12 19l-7-7 7-7"/>
+                            </svg>
+                            Back
+                        </button>
+                        <button type="button" class="btn-primary" onclick="nextStep()">
+                            Continue
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 8: API Keys & Integrations -->
+            <div class="form-step" id="step8">
+                <div class="step-content">
+                    <div class="step-header">
+                        <h2>🔑 API Keys & Service Integrations</h2>
+                        <p>To unlock the full power of your AI platform, please provide API keys for the services you'd like to integrate. All keys are encrypted and stored securely.</p>
+                    </div>
+                    
+                    <div class="security-notice">
+                        <div class="security-icon">🛡️</div>
+                        <div class="security-text">
+                            <h3>Your API Keys Are Safe</h3>
+                            <p>All API keys are encrypted with AES-256 encryption and stored in secure, isolated environments. Only your platform will have access to these keys.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-fields">
+                        <div class="api-section">
+                            <h3>🤖 AI Services</h3>
+                            <div class="field-group">
+                                <label for="openaiKey">OpenAI API Key (GPT-4, ChatGPT)</label>
+                                <div class="secure-input-group">
+                                    <input type="password" id="openaiKey" name="openaiKey" placeholder="sk-..." class="secure-input">
+                                    <button type="button" class="toggle-visibility" onclick="togglePasswordVisibility('openaiKey')">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <small class="field-hint">Get your API key from <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI Platform</a></small>
+                            </div>
+                            
+                            <div class="field-group">
+                                <label for="claudeKey">Anthropic Claude API Key</label>
+                                <div class="secure-input-group">
+                                    <input type="password" id="claudeKey" name="claudeKey" placeholder="sk-ant-..." class="secure-input">
+                                    <button type="button" class="toggle-visibility" onclick="togglePasswordVisibility('claudeKey')">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <small class="field-hint">Get your API key from <a href="https://console.anthropic.com/" target="_blank">Anthropic Console</a></small>
+                            </div>
+                            
+                            <div class="field-group">
+                                <label for="geminiKey">Google Gemini API Key</label>
+                                <div class="secure-input-group">
+                                    <input type="password" id="geminiKey" name="geminiKey" placeholder="AIza..." class="secure-input">
+                                    <button type="button" class="toggle-visibility" onclick="togglePasswordVisibility('geminiKey')">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <small class="field-hint">Get your API key from <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a></small>
+                            </div>
+                            
+                            <div class="field-group">
+                                <label for="stabilityKey">Stability AI API Key (Image Generation)</label>
+                                <div class="secure-input-group">
+                                    <input type="password" id="stabilityKey" name="stabilityKey" placeholder="sk-..." class="secure-input">
+                                    <button type="button" class="toggle-visibility" onclick="togglePasswordVisibility('stabilityKey')">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <small class="field-hint">Get your API key from <a href="https://platform.stability.ai/" target="_blank">Stability AI Platform</a></small>
+                            </div>
+                        </div>
+                        
+                        <div class="api-section">
+                            <h3>📧 Communication & Marketing</h3>
+                            <div class="field-group">
+                                <label for="sendgridKey">SendGrid API Key (Email)</label>
+                                <div class="secure-input-group">
+                                    <input type="password" id="sendgridKey" name="sendgridKey" placeholder="SG...." class="secure-input">
+                                    <button type="button" class="toggle-visibility" onclick="togglePasswordVisibility('sendgridKey')">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <small class="field-hint">For transactional emails and user notifications</small>
+                            </div>
+                            
+                            <div class="field-group">
+                                <label for="mailchimpKey">Mailchimp API Key</label>
+                                <div class="secure-input-group">
+                                    <input type="password" id="mailchimpKey" name="mailchimpKey" placeholder="..." class="secure-input">
+                                    <button type="button" class="toggle-visibility" onclick="togglePasswordVisibility('mailchimpKey')">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <small class="field-hint">For email marketing and subscriber management</small>
+                            </div>
+                        </div>
+                        
+                        <div class="api-section">
+                            <h3>📊 Analytics & Social</h3>
+                            <div class="field-group">
+                                <label for="googleAnalyticsId">Google Analytics Measurement ID</label>
+                                <input type="text" id="googleAnalyticsId" name="googleAnalyticsId" placeholder="G-XXXXXXXXXX">
+                                <small class="field-hint">For tracking user behavior and conversions</small>
+                            </div>
+                            
+                            <div class="field-group">
+                                <label for="facebookPixelId">Facebook Pixel ID</label>
+                                <input type="text" id="facebookPixelId" name="facebookPixelId" placeholder="123456789012345">
+                                <small class="field-hint">For Facebook and Instagram advertising</small>
+                            </div>
+                        </div>
+                        
+                        <div class="api-section">
+                            <h3>📁 Additional Assets</h3>
+                            <div class="field-group">
+                                <label for="additionalLogos">Additional Brand Assets</label>
+                                <div class="file-upload-area" id="additionalLogosDrop">
+                                    <input type="file" id="additionalLogos" name="additionalLogos" multiple accept="image/*,.pdf,.ai,.eps,.svg" class="file-input">
+                                    <div class="upload-content">
+                                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                            <polyline points="7,10 12,15 17,10"></polyline>
+                                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                                        </svg>
+                                        <h4>Drop files here or click to upload</h4>
+                                        <p>Logos, icons, brand guidelines (PNG, JPG, SVG, AI, EPS, PDF)</p>
+                                        <p class="file-limit">Max 10MB per file, up to 10 files</p>
+                                    </div>
+                                </div>
+                                <div class="uploaded-files" id="uploadedFilesList"></div>
+                            </div>
+                            
+                            <div class="field-group">
+                                <label for="brandGuidelines">Brand Guidelines Document</label>
+                                <input type="file" id="brandGuidelines" name="brandGuidelines" accept=".pdf,.doc,.docx">
+                                <small class="field-hint">Upload your brand guidelines (PDF or Word document)</small>
+                            </div>
+                        </div>
+                        
+                        <div class="api-notice">
+                            <h4>💡 Don't have API keys yet?</h4>
+                            <p>No worries! You can add these later through your platform's settings. We'll provide step-by-step guides for setting up each service.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-actions">
+                        <button type="button" class="btn-secondary" onclick="prevStep()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M19 12H5M12 19l-7-7 7-7"/>
+                            </svg>
+                            Back
+                        </button>
+                        <button type="button" class="btn-primary" onclick="nextStep()">
+                            Continue
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 9: Additional Requirements -->
+            <div class="form-step" id="step9">
+                <div class="step-content">
+                    <div class="step-header">
+                        <h2>🎯 Additional Requirements</h2>
+                        <p>Almost done! Any final details, special requests, or timeline considerations we should know about?</p>
+                    </div>
+                    
+                    <div class="form-fields">
+                        <div class="field-group">
+                            <label for="launchTimeline">Desired Launch Timeline *</label>
+                            <select id="launchTimeline" name="launchTimeline" required>
+                                <option value="">Select timeline</option>
+                                <option value="asap">ASAP (Rush - within 24-48 hours)</option>
+                                <option value="standard">Standard (3-5 business days)</option>
+                                <option value="planned">Planned launch date (1-2 weeks)</option>
+                                <option value="flexible">Flexible timeline</option>
+                            </select>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="launchDate">Specific Launch Date (if applicable)</label>
+                            <input type="date" id="launchDate" name="launchDate">
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="marketingSupport">Marketing Launch Support</label>
+                            <div class="marketing-options">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="marketingSupport" value="press-release">
+                                    Press release template
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="marketingSupport" value="social-media">
+                                    Social media launch kit
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="marketingSupport" value="email-templates">
+                                    Launch email templates
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="marketingSupport" value="ads-creative">
+                                    Advertising creative templates
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="marketingSupport" value="influencer-kit">
+                                    Influencer outreach kit
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="trainingNeeds">Training Requirements</label>
+                            <select id="trainingNeeds" name="trainingNeeds">
+                                <option value="standard">Standard video tutorials (included)</option>
+                                <option value="live-session">Live training session (+$297)</option>
+                                <option value="team-training">Team training for multiple users (+$497)</option>
+                                <option value="custom">Custom training program (+$997)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="specialRequests">Special Requests or Notes</label>
+                            <textarea id="specialRequests" name="specialRequests" rows="5" placeholder="Any specific requirements, concerns, or special instructions for our team..."></textarea>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="budget">Additional Development Budget</label>
+                            <select id="budget" name="budget">
+                                <option value="none">None - Use standard setup</option>
+                                <option value="500">$500 - Minor customizations</option>
+                                <option value="1000">$1,000 - Moderate customizations</option>
+                                <option value="2500">$2,500 - Major customizations</option>
+                                <option value="5000">$5,000+ - Extensive custom development</option>
+                            </select>
+                            <small class="field-hint">For custom features beyond the standard platform</small>
+                        </div>
+                        
+                        <div class="field-group">
+                            <label for="referralSource">How did you hear about us?</label>
+                            <select id="referralSource" name="referralSource">
+                                <option value="">Select source</option>
+                                <option value="google">Google Search</option>
+                                <option value="facebook">Facebook Ads</option>
+                                <option value="youtube">YouTube</option>
+                                <option value="referral">Friend/Colleague Referral</option>
+                                <option value="forum">Online Forum/Community</option>
+                                <option value="email">Email Marketing</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="step-actions">
+                        <button type="button" class="btn-secondary" onclick="prevStep()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M19 12H5M12 19l-7-7 7-7"/>
+                            </svg>
+                            Back
+                        </button>
+                        <button type="button" class="btn-primary" onclick="nextStep()">
+                            Review & Submit
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 10: Final Review -->
+            <div class="form-step" id="step10">
+                <div class="step-content">
+                    <div class="step-header">
+                        <h2>🔍 Review & Submit</h2>
+                        <p>Please review your information below. Once submitted, our team will begin setting up your white label AI SaaS platform.</p>
+                    </div>
+                    
+                    <div class="review-section">
+                        <div id="reviewContent" class="review-content">
+                            <!-- Dynamic review content will be generated here -->
+                        </div>
+                    </div>
+                    
+                    <div class="final-confirmation">
+                        <div class="confirmation-box">
+                            <h3>🚀 What Happens Next?</h3>
+                            <div class="next-steps-timeline">
+                                <div class="timeline-item">
+                                    <span class="timeline-number">1</span>
+                                    <div class="timeline-content">
+                                        <h4>Immediate (Within 1 hour)</h4>
+                                        <p>You'll receive a confirmation email with your project details and timeline.</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <span class="timeline-number">2</span>
+                                    <div class="timeline-content">
+                                        <h4>Setup Phase (24-48 hours)</h4>
+                                        <p>Our team will configure your platform, apply your branding, and set up all features.</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <span class="timeline-number">3</span>
+                                    <div class="timeline-content">
+                                        <h4>Testing & Review (24 hours)</h4>
+                                        <p>We'll test everything thoroughly and send you a preview for your approval.</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <span class="timeline-number">4</span>
+                                    <div class="timeline-content">
+                                        <h4>Launch & Training</h4>
+                                        <p>We'll launch your platform and provide complete training and documentation.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-actions">
+                        <button type="button" class="btn-secondary" onclick="prevStep()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M19 12H5M12 19l-7-7 7-7"/>
+                            </svg>
+                            Back to Edit
+                        </button>
+                        <button type="button" class="btn-primary btn-submit" onclick="submitForm()" id="submitButton">
+                            Submit Onboarding Form
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submission Success -->
+            <div class="form-step" id="submitSuccess" style="display: none;">
+                <div class="step-content">
+                    <div class="success-animation">
+                        <div class="checkmark large">✓</div>
+                    </div>
+                    <h1>🎉 Onboarding Complete!</h1>
+                    <h2>Welcome to Your AI Empire Journey</h2>
+                    
+                    <div class="success-details">
+                        <p>Your onboarding form has been successfully submitted to our team. Here's what you can expect:</p>
+                        
+                        <div class="success-timeline">
+                            <div class="timeline-step">
+                                <div class="step-icon">📧</div>
+                                <div class="step-info">
+                                    <h4>Within 1 Hour</h4>
+                                    <p>Confirmation email with project ID and team contact info</p>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-icon">⚡</div>
+                                <div class="step-info">
+                                    <h4>24-48 Hours</h4>
+                                    <p>Platform setup, branding application, and feature configuration</p>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-icon">🎯</div>
+                                <div class="step-info">
+                                    <h4>Preview Ready</h4>
+                                    <p>Private link to review your branded platform before launch</p>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-icon">🚀</div>
+                                <div class="step-info">
+                                    <h4>Launch Day</h4>
+                                    <p>Your AI SaaS platform goes live under your brand!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h3>Need Help or Have Questions?</h3>
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <span class="contact-icon">📧</span>
+                                <span>support@readymadehustles.com</span>
+                            </div>
+                            <div class="contact-method">
+                                <span class="contact-icon">💬</span>
+                                <span>Live chat on our website</span>
+                            </div>
+                            <div class="contact-method">
+                                <span class="contact-icon">📱</span>
+                                <span>Priority support line (sent via email)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="final-actions">
+                        <a href="index.html" class="btn-secondary">Return to Homepage</a>
+                        <button class="btn-primary" onclick="window.print()">Print This Page</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Debug function to test if JavaScript is working
+        function testFunction() {
+            console.log('Test function called!');
+            alert('JavaScript is working!');
+        }
+    </script>
+    <script src="script.js"></script>
+    <script src="onboarding-backup.js"></script>
+    <script>
+        // Final initialization check
+        window.addEventListener('load', function() {
+            console.log('Window loaded, checking onboarding functions...');
+            console.log('nextStep function available:', typeof window.nextStep);
+            console.log('prevStep function available:', typeof window.prevStep);
+            console.log('submitForm function available:', typeof window.submitForm);
+        });
+    </script>
+</body>
+</html>
