@@ -1337,31 +1337,28 @@
     </script>
 
     <!-- Clerk Authentication -->
-    <script async crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"></script>
+    <script
+        async
+        crossorigin="anonymous"
+        data-clerk-publishable-key="pk_test_Zml0LWNpY2FkYS00OC5jbGVyay5hY2NvdW50cy5kZXYk"
+        src="https://fit-cicada-48.clerk.accounts.dev/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
+        type="text/javascript"
+    ></script>
     <script>
         // Initialize Clerk
-        window.addEventListener('load', async () => {
-            try {
-                // Get Clerk publishable key from environment or API
-                const response = await fetch('/api/clerk-config');
-                const config = await response.json();
-                
-                if (window.Clerk) {
-                    await window.Clerk.load({
-                        publishableKey: config.publishableKey
-                    });
+        window.addEventListener('load', () => {
+            const checkClerk = setInterval(() => {
+                if (window.Clerk?.loaded) {
+                    clearInterval(checkClerk);
+                    console.log('Clerk initialized');
                     
                     // Set up authentication state
                     updateAuthState();
                     
                     // Listen for auth state changes
                     window.Clerk.addListener('session', updateAuthState);
-                } else {
-                    console.error('Clerk not loaded');
                 }
-            } catch (error) {
-                console.error('Error initializing Clerk:', error);
-            }
+            }, 100);
         });
 
         function updateAuthState() {

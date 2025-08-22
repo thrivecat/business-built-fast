@@ -18,11 +18,17 @@ class AdminDashboard {
 
     async initAuth() {
         try {
+            // Wait for Clerk to be fully loaded
+            if (!window.Clerk?.loaded) {
+                setTimeout(() => this.initAuth(), 100);
+                return;
+            }
+
             // Check if user is signed in with Clerk
             const user = window.Clerk.user;
             if (!user) {
                 // Redirect to sign-in if not authenticated
-                window.location.href = '/?sign-in=true';
+                await window.Clerk.redirectToSignIn();
                 return;
             }
 
@@ -45,7 +51,11 @@ class AdminDashboard {
             this.updateUserDisplay();
         } catch (error) {
             console.error('Authentication error:', error);
-            window.location.href = '/?sign-in=true';
+            if (window.Clerk?.loaded) {
+                await window.Clerk.redirectToSignIn();
+            } else {
+                window.location.href = '/';
+            }
         }
     }
 
@@ -925,15 +935,11 @@ class AdminDashboard {
 
 // Initialize admin dashboard when Clerk is loaded
 window.addEventListener('load', () => {
-    if (window.Clerk) {
-        window.adminDashboard = new AdminDashboard();
-    } else {
-        // Wait for Clerk to load
-        const checkClerk = setInterval(() => {
-            if (window.Clerk) {
-                clearInterval(checkClerk);
-                window.adminDashboard = new AdminDashboard();
-            }
-        }, 100);
-    }
+    // Wait for Clerk to load
+    const checkClerk = setInterval(() => {
+        if (window.Clerk?.loaded) {
+            clearInterval(checkClerk);
+            window.adminDashboard = new AdminDashboard();
+        }
+    }, 100);
 });
