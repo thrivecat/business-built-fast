@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard - Business Built Fast</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script async crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <span class="logo-text">Business Built<span class="accent">Fast</span></span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="#" class="active">Dashboard</a></li>
+                    <li><a href="/help">Help</a></li>
+                    <li><button id="signOutBtn" class="sign-out-btn">Sign Out</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-user">
+                <div class="user-avatar" id="userAvatar">👤</div>
+                <div class="user-info">
+                    <h3 id="userName">Loading...</h3>
+                    <p id="userEmail">Loading...</p>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#overview" class="nav-link active" data-section="overview">
+                    <span class="nav-icon">📊</span>
+                    Overview
+                </a>
+                <a href="#orders" class="nav-link" data-section="orders">
+                    <span class="nav-icon">📦</span>
+                    My Orders
+                </a>
+                <a href="#tickets" class="nav-link" data-section="tickets">
+                    <span class="nav-icon">🎫</span>
+                    Support Tickets
+                </a>
+                <a href="#onboarding" class="nav-link" data-section="onboarding">
+                    <span class="nav-icon">📋</span>
+                    Onboarding Forms
+                </a>
+                <a href="#profile" class="nav-link" data-section="profile">
+                    <span class="nav-icon">👤</span>
+                    Profile
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Overview Section -->
+            <section id="overview" class="dashboard-section active">
+                <div class="section-header">
+                    <h1>Dashboard Overview</h1>
+                    <p>Welcome back! Here's what's happening with your account.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📦</div>
+                        <div class="stat-content">
+                            <h3 id="totalOrders">0</h3>
+                            <p>Total Orders</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-content">
+                            <h3 id="totalSpent">$0</h3>
+                            <p>Total Spent</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🎫</div>
+                        <div class="stat-content">
+                            <h3 id="openTickets">0</h3>
+                            <p>Open Tickets</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-content">
+                            <h3 id="completedOrders">0</h3>
+                            <p>Completed Orders</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-activity">
+                    <h2>Recent Activity</h2>
+                    <div class="activity-list" id="recentActivity">
+                        <div class="activity-item">
+                            <div class="activity-icon">📦</div>
+                            <div class="activity-content">
+                                <p><strong>Order #1001</strong> - Status updated to "Processing"</p>
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Orders Section -->
+            <section id="orders" class="dashboard-section">
+                <div class="section-header">
+                    <h1>My Orders</h1>
+                    <p>Track your orders and download invoices.</p>
+                </div>
+
+                <div class="orders-filter">
+                    <select id="orderStatusFilter">
+                        <option value="">All Orders</option>
+                        <option value="pending">Pending</option>
+                        <option value="processing">Processing</option>
+                        <option value="shipped">Shipped</option>
+                        <option value="delivered">Delivered</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </div>
+
+                <div class="orders-list" id="ordersList">
+                    <div class="loading">Loading orders...</div>
+                </div>
+            </section>
+
+            <!-- Support Tickets Section -->
+            <section id="tickets" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Support Tickets</h1>
+                    <p>Get help with your orders and account.</p>
+                    <button class="btn btn-primary" id="createTicketBtn">Create New Ticket</button>
+                </div>
+
+                <div class="tickets-list" id="ticketsList">
+                    <div class="loading">Loading tickets...</div>
+                </div>
+            </section>
+
+            <!-- Onboarding Forms Section -->
+            <section id="onboarding" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Onboarding Forms</h1>
+                    <p>Complete your business setup forms.</p>
+                </div>
+
+                <div class="onboarding-list" id="onboardingList">
+                    <div class="loading">Loading forms...</div>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profile" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Profile Settings</h1>
+                    <p>Manage your account information and preferences.</p>
+                </div>
+
+                <div class="profile-form">
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label for="profileFirstName">First Name</label>
+                            <input type="text" id="profileFirstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="profileLastName">Last Name</label>
+                            <input type="text" id="profileLastName" name="lastName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="profileEmail">Email</label>
+                            <input type="email" id="profileEmail" name="email" required readonly>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update Profile</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="ticketModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create Support Ticket</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <form id="ticketForm">
+                <div class="form-group">
+                    <label for="ticketSubject">Subject</label>
+                    <input type="text" id="ticketSubject" required>
+                </div>
+                <div class="form-group">
+                    <label for="ticketPriority">Priority</label>
+                    <select id="ticketPriority">
+                        <option value="low">Low</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">High</option>
+                        <option value="urgent">Urgent</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ticketDescription">Description</label>
+                    <textarea id="ticketDescription" rows="5" required></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelTicketBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Ticket</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Order Details</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div id="orderDetails">
+                <div class="loading">Loading order details...</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ticketDetailsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Ticket Details</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div id="ticketDetails">
+                <div class="loading">Loading ticket details...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Clerk with environment variables
+        window.addEventListener('load', async () => {
+            try {
+                // Get Clerk publishable key from environment or API
+                const response = await fetch('/api/clerk-config');
+                const config = await response.json();
+                
+                if (window.Clerk) {
+                    await window.Clerk.load({
+                        publishableKey: config.publishableKey
+                    });
+                } else {
+                    console.error('Clerk not loaded');
+                }
+            } catch (error) {
+                console.error('Error initializing Clerk:', error);
+            }
+        });
+    </script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

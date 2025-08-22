@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Business Built Fast</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script async crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <span class="logo-text">Business Built<span class="accent">Fast</span></span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="#" class="active">Admin Dashboard</a></li>
+                    <li><a href="/help">Help</a></li>
+                    <li><button id="signOutBtn" class="sign-out-btn">Sign Out</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-user">
+                <div class="user-avatar admin-avatar" id="userAvatar">👨‍💼</div>
+                <div class="user-info">
+                    <h3 id="userName">Loading...</h3>
+                    <p id="userEmail">Loading...</p>
+                    <span class="user-role">Administrator</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#overview" class="nav-link active" data-section="overview">
+                    <span class="nav-icon">📊</span>
+                    Overview
+                </a>
+                <a href="#orders" class="nav-link" data-section="orders">
+                    <span class="nav-icon">📦</span>
+                    All Orders
+                </a>
+                <a href="#customers" class="nav-link" data-section="customers">
+                    <span class="nav-icon">👥</span>
+                    Customers
+                </a>
+                <a href="#tickets" class="nav-link" data-section="tickets">
+                    <span class="nav-icon">🎫</span>
+                    Support Tickets
+                </a>
+                <a href="#onboarding" class="nav-link" data-section="onboarding">
+                    <span class="nav-icon">📋</span>
+                    Onboarding Forms
+                </a>
+                <a href="#analytics" class="nav-link" data-section="analytics">
+                    <span class="nav-icon">📈</span>
+                    Analytics
+                </a>
+                <a href="#settings" class="nav-link" data-section="settings">
+                    <span class="nav-icon">⚙️</span>
+                    Settings
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Overview Section -->
+            <section id="overview" class="dashboard-section active">
+                <div class="section-header">
+                    <h1>Admin Dashboard</h1>
+                    <p>Monitor and manage your business operations.</p>
+                </div>
+
+                <div class="stats-grid admin-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-content">
+                            <h3 id="totalRevenue">$0</h3>
+                            <p>Total Revenue</p>
+                            <span class="stat-change positive">+12.5%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📦</div>
+                        <div class="stat-content">
+                            <h3 id="totalOrders">0</h3>
+                            <p>Total Orders</p>
+                            <span class="stat-change positive">+8.3%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-content">
+                            <h3 id="totalCustomers">0</h3>
+                            <p>Total Customers</p>
+                            <span class="stat-change positive">+15.2%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🎫</div>
+                        <div class="stat-content">
+                            <h3 id="openTickets">0</h3>
+                            <p>Open Tickets</p>
+                            <span class="stat-change negative">-5.1%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-charts">
+                    <div class="chart-card">
+                        <h3>Revenue Overview</h3>
+                        <div class="chart-placeholder">
+                            <canvas id="revenueChart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Order Status Distribution</h3>
+                        <div class="chart-placeholder">
+                            <canvas id="orderStatusChart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-activity">
+                    <h2>Recent System Activity</h2>
+                    <div class="activity-list" id="adminRecentActivity">
+                        <div class="loading">Loading activity...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Orders Section -->
+            <section id="orders" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Order Management</h1>
+                    <p>View and manage all customer orders.</p>
+                    <div class="section-actions">
+                        <select id="adminOrderStatusFilter">
+                            <option value="">All Orders</option>
+                            <option value="pending">Pending</option>
+                            <option value="processing">Processing</option>
+                            <option value="shipped">Shipped</option>
+                            <option value="delivered">Delivered</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="admin-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminOrdersTable">
+                            <tr>
+                                <td colspan="6" class="loading">Loading orders...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Customers Section -->
+            <section id="customers" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Customer Management</h1>
+                    <p>View and manage customer accounts.</p>
+                </div>
+
+                <div class="admin-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Customer ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Join Date</th>
+                                <th>Orders</th>
+                                <th>Total Spent</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminCustomersTable">
+                            <tr>
+                                <td colspan="7" class="loading">Loading customers...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Support Tickets Section -->
+            <section id="tickets" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Support Ticket Management</h1>
+                    <p>Manage customer support requests.</p>
+                    <div class="section-actions">
+                        <select id="adminTicketStatusFilter">
+                            <option value="">All Tickets</option>
+                            <option value="open">Open</option>
+                            <option value="in_progress">In Progress</option>
+                            <option value="closed">Closed</option>
+                        </select>
+                        <select id="adminTicketPriorityFilter">
+                            <option value="">All Priorities</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                            <option value="urgent">Urgent</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="tickets-list" id="adminTicketsList">
+                    <div class="loading">Loading tickets...</div>
+                </div>
+            </section>
+
+            <!-- Onboarding Forms Section -->
+            <section id="onboarding" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Onboarding Form Management</h1>
+                    <p>Review and manage customer onboarding submissions.</p>
+                </div>
+
+                <div class="onboarding-list" id="adminOnboardingList">
+                    <div class="loading">Loading forms...</div>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Analytics & Reports</h1>
+                    <p>Detailed business analytics and performance metrics.</p>
+                </div>
+
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>Sales Performance</h3>
+                        <div class="metric-value">$24,580</div>
+                        <div class="metric-label">This Month</div>
+                        <div class="metric-change positive">+18.5% from last month</div>
+                    </div>
+                    <div class="analytics-card">
+                        <h3>Conversion Rate</h3>
+                        <div class="metric-value">3.2%</div>
+                        <div class="metric-label">Average</div>
+                        <div class="metric-change positive">+0.4% from last month</div>
+                    </div>
+                    <div class="analytics-card">
+                        <h3>Customer Lifetime Value</h3>
+                        <div class="metric-value">$1,247</div>
+                        <div class="metric-label">Average</div>
+                        <div class="metric-change positive">+12.1% from last month</div>
+                    </div>
+                    <div class="analytics-card">
+                        <h3>Support Response Time</h3>
+                        <div class="metric-value">2.4h</div>
+                        <div class="metric-label">Average</div>
+                        <div class="metric-change negative">+0.3h from last month</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="dashboard-section">
+                <div class="section-header">
+                    <h1>System Settings</h1>
+                    <p>Configure system settings and preferences.</p>
+                </div>
+
+                <div class="settings-grid">
+                    <div class="settings-card">
+                        <h3>Email Notifications</h3>
+                        <form id="emailSettingsForm">
+                            <div class="setting-item">
+                                <label>
+                                    <input type="checkbox" id="newOrderNotification" checked>
+                                    New Order Notifications
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label>
+                                    <input type="checkbox" id="ticketNotification" checked>
+                                    Support Ticket Notifications
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label>
+                                    <input type="checkbox" id="dailyReports" checked>
+                                    Daily Reports
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Settings</button>
+                        </form>
+                    </div>
+                    
+                    <div class="settings-card">
+                        <h3>Database Management</h3>
+                        <div class="setting-actions">
+                            <button class="btn btn-secondary" id="initDbBtn">Initialize Database</button>
+                            <button class="btn btn-secondary" id="backupDbBtn">Backup Database</button>
+                            <button class="btn btn-danger" id="clearLogsBtn">Clear Logs</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="orderDetailsModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2>Order Details & Management</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div id="adminOrderDetails">
+                <div class="loading">Loading order details...</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ticketManageModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2>Manage Support Ticket</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div id="adminTicketDetails">
+                <div class="loading">Loading ticket details...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Clerk with environment variables
+        window.addEventListener('load', async () => {
+            try {
+                // Get Clerk publishable key from environment or API
+                const response = await fetch('/api/clerk-config');
+                const config = await response.json();
+                
+                if (window.Clerk) {
+                    await window.Clerk.load({
+                        publishableKey: config.publishableKey
+                    });
+                } else {
+                    console.error('Clerk not loaded');
+                }
+            } catch (error) {
+                console.error('Error initializing Clerk:', error);
+            }
+        });
+    </script>
+    <script src="admin.js"></script>
+</body>
+</html>

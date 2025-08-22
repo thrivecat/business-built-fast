@@ -167,6 +167,27 @@ body {
   font-weight: 600;
 }
 
+.auth-btn {
+  color: var(--text-primary) !important;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.auth-btn:hover {
+  background: var(--background-light);
+  border-color: var(--accent-color);
+}
+
+#signedInState,
+#signedOutState {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
 .hamburger {
   display: none;
   flex-direction: column;

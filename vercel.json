@@ -69,6 +69,14 @@
     {
       "source": "/blog/ecommerce-seo-ultimate-guide",
       "destination": "/blog/ecommerce-seo-ultimate-guide.html"
+    },
+    {
+      "source": "/dashboard",
+      "destination": "/dashboard.html"
+    },
+    {
+      "source": "/admin",
+      "destination": "/admin.html"
     }
   ],
   "headers": [

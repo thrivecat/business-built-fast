@@ -4,12 +4,14 @@
   "description": "Ready-made businesses that generate $10K/month",
   "main": "index.html",
   "scripts": {
-    "dev": "vercel dev",
+    "dev": "echo 'Starting local server...' && npx http-server . -p 3000",
     "build": "echo 'Static site - no build needed'",
     "deploy": "vercel --prod"
   },
   "dependencies": {
-    "stripe": "^14.21.0"
+    "stripe": "^14.21.0",
+    "pg": "^8.11.3",
+    "@clerk/clerk-sdk-node": "^4.13.7"
   },
   "keywords": ["business", "saas", "ecommerce", "stripe"],
   "author": "Business Built Fast",

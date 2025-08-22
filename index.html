@@ -45,7 +45,16 @@
                             🛒 <span class="cart-badge" id="cart-count">0</span>
                         </div>
                     </li>
-                    <li><a href="/offer1" class="cta-button nav-cta">Get Started</a></li>
+                    <li id="authSection">
+                        <div id="signedOutState">
+                            <a href="#" id="signInBtn" class="auth-btn">Sign In</a>
+                            <a href="#" id="signUpBtn" class="cta-button nav-cta">Sign Up</a>
+                        </div>
+                        <div id="signedInState" style="display: none;">
+                            <a href="/dashboard" class="auth-btn">Dashboard</a>
+                            <a href="#" id="signOutBtn" class="auth-btn">Sign Out</a>
+                        </div>
+                    </li>
                 </ul>
                 <div class="hamburger">
                     <span></span>
@@ -1325,6 +1334,78 @@
                 this.disabled = true;
             }, 1000);
         });
+    </script>
+
+    <!-- Clerk Authentication -->
+    <script async crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"></script>
+    <script>
+        // Initialize Clerk
+        window.addEventListener('load', async () => {
+            try {
+                // Get Clerk publishable key from environment or API
+                const response = await fetch('/api/clerk-config');
+                const config = await response.json();
+                
+                if (window.Clerk) {
+                    await window.Clerk.load({
+                        publishableKey: config.publishableKey
+                    });
+                    
+                    // Set up authentication state
+                    updateAuthState();
+                    
+                    // Listen for auth state changes
+                    window.Clerk.addListener('session', updateAuthState);
+                } else {
+                    console.error('Clerk not loaded');
+                }
+            } catch (error) {
+                console.error('Error initializing Clerk:', error);
+            }
+        });
+
+        function updateAuthState() {
+            const signedInState = document.getElementById('signedInState');
+            const signedOutState = document.getElementById('signedOutState');
+            
+            if (window.Clerk?.user) {
+                signedInState.style.display = 'flex';
+                signedOutState.style.display = 'none';
+            } else {
+                signedInState.style.display = 'none';
+                signedOutState.style.display = 'flex';
+            }
+        }
+
+        // Sign in button
+        document.getElementById('signInBtn')?.addEventListener('click', async (e) => {
+            e.preventDefault();
+            await window.Clerk.openSignIn();
+        });
+
+        // Sign up button
+        document.getElementById('signUpBtn')?.addEventListener('click', async (e) => {
+            e.preventDefault();
+            await window.Clerk.openSignUp();
+        });
+
+        // Sign out button
+        document.getElementById('signOutBtn')?.addEventListener('click', async (e) => {
+            e.preventDefault();
+            await window.Clerk.signOut();
+        });
+
+        // Handle URL parameters for authentication
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('sign-in') === 'true') {
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    if (window.Clerk) {
+                        window.Clerk.openSignIn();
+                    }
+                }, 1000);
+            });
+        }
     </script>
 </body>
 </html>
